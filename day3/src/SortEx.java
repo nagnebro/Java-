@@ -54,6 +54,33 @@ class StarEx02{
 //          11111
 //           111
 //            1
+
+        // 전체 행 포문 1개, 공백에 해당하는 포문 거기서 1도바로 출력, 다만 공백의 방향성을 어떻게 바꿀것인가.
+        // 처음에는 증감식에서 --로 시작할거고
+        for (int i = 1; i<=5 ; i++) {
+            for (int j = 1; j <= 5 - i; j++) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= i * 2 - 1; k++) {
+                System.out.print("1");
+            }
+            System.out.println();
+
+        }
+            for (int i = 1; i<=4 ; i++){
+                for (int j = 1; j<=i; j++){
+                    System.out.print(" ");
+                }
+                for( int k = 4; k<=k*2-1; k--){
+                    System.out.print("1");
+                }
+                System.out.println();
+
+
+
+            }
+
+
         /*
         * *      *
         * **    **

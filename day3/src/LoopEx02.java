@@ -75,7 +75,7 @@ class LoopEx03{
                     case 12,1,2 : weather = "겨울";
                     break;
                     case 99 : System.out.println("종료합니다");
-                    break Dan;
+                    break Dan; // 혹은 return
                     default : System.out.println("제대로 입력하세요"); //if문의 else같은 존재
                     continue;
 
