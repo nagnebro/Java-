@@ -75,7 +75,7 @@ class LoopEx03{
                     case 12,1,2 : weather = "겨울";
                     break;
                     case 99 : System.out.println("종료합니다");
-                    break Dan; // 혹은 return
+                    break Dan; // 혹은 return 사용도 됨. 허나 메인 메서드가 완전 종료돼도 되는 프로그램인지 아닌지에 따라 다름.
                     default : System.out.println("제대로 입력하세요"); //if문의 else같은 존재
                     continue;
 

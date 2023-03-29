@@ -4,6 +4,8 @@ import java.util.Scanner;
 public class ArrayEx07 {
     public static void main(String[] args) {
 
+        // ============2차원 배열 시작================
+
         // 3개의 반에서 5명의 학생의 점수의 평균을 구하여라
 
         int[][] arr = {
@@ -21,6 +23,7 @@ public class ArrayEx07 {
             sum = 0;
         }
         //1차원 배열에서 length는 열의 길이를 뜻하고 2차원 배열에서 length는 행의 길이를 뜻한다.
+        //1차원 배열에서는 1행에 열이 몇열이냐가 다른 것이고 2차원부터는 몇행이 있고 그 행에 몇열이 있냐이다.
 //        for (int[] arr1 : arr){
 //            for(int arr2 : arr1){
 //                System.out.println(arr2);
@@ -74,9 +77,9 @@ public class ArrayEx07 {
         input2 = sc.nextInt();
         int row1 = 0, row2 = 0, tmp;
         int column1 = 0, column2 = 0;
-        for (int i = 0; i < arr3.length; i++) {
-            for (int j = 0; j < arr3[i].length; j++) {
-                if (arr3[i][j] == input1) {
+        for (int i = 0; i < arr3.length; i++) { // 배열의 행을 돌리는 for문
+            for (int j = 0; j < arr3[i].length; j++) { // 배열의 행에 들어와서 열을 돌리는 for문
+                if (arr3[i][j] == input1) { // 입력값과 배열의 값이 같은지 비교
                     row1 = i;
                     column1 = j;
                 } else if (arr3[i][j] == input2) {

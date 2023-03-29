@@ -32,24 +32,25 @@ public class StringEx {
         int res2 = str2.compareTo(str3);
         int res3 = str1.compareTo(str3);
 
+        System.out.println("a".compareTo("b"));  // -1출력
         System.out.println(res1); // 기준값(가)의 코드가 비교값(나)의 코드보다 작기 때문에 -가 출력
         // 현 예제에서는 한글을 이용한 유니코드기 때문에 출력값이 이상한 듯.
         System.out.println(res2); // 기준값 나의 값이 가보다 크기 떄문에 +가 출력
         System.out.println(res3); // 기준값 가와 가가 같으니 0이 출력.
 
         String str = "hello";
-        char ch = str.charAt(2);
+        char ch = str.charAt(2); //문자열 중 문자 1개를 잘라내는 charAt() 반환값도 문자열(String)이 아닌 문자(Char)타입이다.
         System.out.println(ch);
         str = "python java html jsp spring";
 
         // charAt처럼 char타입의 문자 1개만 받아오는 것이 아닌 문자열 여러개를 추출하는 메서드(슬라이싱)
-        // substring(시작번호, 끝번호) 파이썬과 마찬가지로 끝의 인덱스 번호는 포함하지 않는다. 그리고 공백도 역시 문자열로 간주한다.
+        // 문자열.substring(시작번호, 끝번호) 파이썬과 마찬가지로 끝의 인덱스 번호는 포함하지 않는다. 그리고 공백도 역시 문자열로 간주한다.
         str = str.substring(3,6);
         System.out.println(str);
 
         str ="python,java,html,jsp,spring";
         // 구분자를 이용해서 문자열을 잘라내는 메서드
-        // split() 파이썬과 동일
+        // split() 파이썬과 동일. 문자열.split(구분할 문자열)의 형태로 사용한다.
          // 문자열에서의 구분자를 의미하기 때문에 외따옴표가 아닌 쌍따옴표를 사용해야 한다.
         String [] arr1 = str.split(",");
         System.out.println(arr1[0]);
@@ -67,13 +68,9 @@ public class StringEx {
         }
         //이 방법이 아니고 -를 기준으로 split시킨 후 인덱스번호가 1인(2번째)문자열을 저장한 뒤 그 두번째 문자열의 첫번째 인덱스(0번)를
         //판별해서 2가나오면 여자인 것으로도 판별이 가능함.
-        String test = "avx,cc";
-        String [] testarr;
-        testarr = test.split(",");
-        System.out.println(testarr[1]+"   "+testarr[0]);
 
         //이메일을 입력받고 9글자 이상 가입가능, 미만은 가입이 불가능한 프로그램 만들어라.
-        //구분자를 이ㅛㅇ해서 아이디와 도메인주를 분리
+        //구분자를 이용해서 아이디와 도메인주를 분리
         //.com 인지 .net인지에 따라 가입이 가능한지 불가능한지 판별.
 
         /*
@@ -82,6 +79,7 @@ public class StringEx {
          */
 
         Scanner sc = new Scanner(System.in);
+        System.out.println("이메일 작성 조건 >> 도메인 네임 제외 9글자 이상, .com 형태의 메일만 가입가능");
         System.out.print("이메일을 입력하세요 : ");
         String email = sc.nextLine();
         String name = null, domain = null;
@@ -90,7 +88,11 @@ public class StringEx {
         String [] emailarr2 = emailarr[1].split("\\."); //@뒤의 문자열을 다시 컴마를 기준으로 문자열 배열로 나눠준다.
         // 단 콤마를 기준으로 나누기 위해서는 이스케이프 코드를 써서 다음과 같이 나타내야한다.
         domain = emailarr2[1]; // @뒤의 도메인 문자열에서 다시 .을 기준으로 문자열을 나눈 후 뒤쪽의 주소 형식을 저장.
-        System.out.printf("%s , %s",name,domain);
+        if(name.length()>=9 && domain.equals("com")){
+            System.out.println("가입이 완료됐습니다");
+        }else{
+            System.out.println("가입이 불가능합니다.");
+        }
 
     }
 }
