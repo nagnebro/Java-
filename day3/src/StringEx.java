@@ -96,3 +96,32 @@ public class StringEx {
 
     }
 }
+
+class Test{
+    public static void main(String [] args){
+        long x = (long)(10000000l*10000000);
+        long y = (long)(1000000)*(long)(10000000);
+        long z = (long)(1000000*10000000);
+        System.out.printf("x : %d ., y = %d , z = %d \n",x,y,z);
+        byte b = (byte)130;
+
+        System.out.println(b);
+        System.out.println("33sadas");
+        System.out.println("33sadas");
+        int value = 400;
+        char ch = 44000;
+        //ch = (char)(44000)+(char)(value); // +연산결과값이 int형이기 때문에 안된다기 보다는 아래의 설명이 옳다.
+        // 연산결과값이 int라서 컴파일에러 발생할거면 다른 코드들도 전부 에러가 발생해야한다. 'A'+1 이런것들 말이다.
+        // 리터럴간의 연산이냐 변수와 리터럴간의 연산이냐에 따라 컴파일 에러가 발생하고 안하고에서 차이가 있다.
+        // 그 이유는 컴파일러가 변수가 아닌 리터럴 간의 연산은 미리 계산해놓는데 변수와 리터럴 간의 연산이면 미리 계산할 수 없기 때문이다.
+        int num1 = 123456780;
+        int num2 = 123456780;
+
+        float num3 = num2;
+        num2 = (int)num3; // 실수를 정수로 변환하는 과정에서 값이 좀 바뀐듯.
+        System.out.printf("num2 : %s, num3 : %s",num2,num3);
+        byte bytevalue1 = 30;
+        byte bytevalue2 = 59;
+        byte bytevalue3 = (byte)(bytevalue1+bytevalue2);  //연산결과가 int라서 컴파일 에러 발생
+    }
+}
