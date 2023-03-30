@@ -42,7 +42,7 @@ class ArrayEx01 {
 
         String[] menu = {"마라탕", "돈까스", "김밥", "컵밥", "라면"};
         Random r = new Random();
-        int rannum = r.nextInt(5);
+        int rannum = r.nextInt(5); // 랜덤 인덱스 뽑는 변수.
         System.out.println(menu[rannum]);
 
         //로또 프로그램을 작성
@@ -59,6 +59,23 @@ class ArrayEx01 {
         //중복을 제거하는 명령문을 추가
         //45번까지 배열을 만들어서 거기서 랜덤으로 뽑는 방법이 있고 위 코드에서 크게 수정없이 만들기 위해서는
         //if문으로 조건을 추가해서 배열안에 추가하려는 번호가 있다면 배열에 안넘겨주고 다른 값 넘겨줘야하는데 해당하는
-        //적절한 메서드가 뭐가 있는지 생각이 나지 않음. 
+        //적절한 메서드가 뭐가 있는지 생각이 나지 않음.
+
+        // 설계를 처음부터하자. 중복을 없애려면 결국 이중포문으로 다시 확인하는 수 밖에는 없다 내 머리로는
+        // 바깥 포문은 요소를 추가하고 안쪽 포문은 그 요소까지 앞전의 값들과 비교하며 같은지 검사
+        // 같은 값이 나올 시 그 안쪽 포문을 무한 반복해야함.다시뽑은값이 또 같은 값일 수 있으니.
+        int [] lotto2 = new int[6];
+
+        for(int i = 0; i<lotto2.length ; i++){
+            lotto2[i] = r.nextInt(10)+1;
+            for(int j = 0; j<i; j++){
+                if ( lotto2[i]==lotto2[j]){ // lotto2[i]값을 새로 뽑을떄마다 lotto2 요소의 처음부터 계속 비교하고 같으면 다시 뽑기를 반복.
+                    lotto2[i] = r.nextInt(10)+1;
+                    j=0;
+                    System.out.println("중복제거");
+                    continue;
+                }
+            }
+        }System.out.println(Arrays.toString(lotto2));
     }
 }

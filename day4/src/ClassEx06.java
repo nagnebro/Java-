@@ -58,7 +58,7 @@ class HeroTest{
         int i = 0;
         while( i<=10) {
             herolist[r.nextInt(3)].attack(tanos);
-            i++;
+
         }
     }
 }
