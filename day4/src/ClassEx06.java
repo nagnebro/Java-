@@ -8,11 +8,12 @@ class Hero{
         System.out.println("이름은 "+this.name+"hp는 "+this.hp);
     }
 
-    void attack(Hero h){
-        h.hp -= 30;
+    void attack(Hero h){ // 여기서 넘어온 h 참조변수는 공격을 당하는 첨조변수고 이 메서드를 호출한 참조변수는 공격을 하는 입장이다.
+        h.hp -= 30;        //따라서 공격받는 h의 hp를 깎으면서 아래에서 공격자의 name은 this의 형태로 접근이 가능하다.
         System.out.printf("%s의 공격으로 %s의 hp가 %d가 됐습니다 \n",this.name,h.name,h.hp);
 
     }
+    Hero(){}
     Hero(String name, int hp){
 
         this.name = name;
@@ -44,6 +45,9 @@ class HeroTest{
         Hero ironman =  new Hero("ironman",100);
         Hero spiderman =  new Hero("spiderman",100);
         Hero hulk =  new Hero("hulk",100);
+        // 참조변수의 이름없이 인덱스 번호로만 접근하려면 굳이 위와 같이 참조변수 이름을 정하지 않고 다음과 같이 정의할 수도 있다.
+
+        //Hero [] herolist1 = {new Hero("hulk",100),new Hero("ironman",100),new Hero("spiderman",100)}
         herolist[0] = ironman;
         herolist[1] = spiderman;
         herolist[2] = hulk;

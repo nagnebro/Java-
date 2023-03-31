@@ -41,10 +41,14 @@ class Stu{
     ArrayList<Integer> scores = new ArrayList<>(); // 배열이 추가되고 삭제될 수 있는 arraylist. 배열과는 다름.
     // velog에 java에서의 list와 array정리 필요(개념 및 관련 메서드, 그냥 Array랑은 어떻게 다른지). 또한 메모리 관리의 중요성도.
 
-    void printscore(Stu s){
-        System.out.println("학생의 이름은  "+s.name+" 학생의 학번은 "+hakbun+"  학생의 점수는"+s.scores);
-        for ( int tmp : s.scores){
-            System.out.print(tmp);
+    void printscore(Stu s){ // 굳이 매개변수로 참조변수를 넘겨줄 필요가 없다. 어차피 인스턴스 메서드를 실행한 참조변수의 값으로 객체를 이용하기 때문에
+        // 그 자체로 인스턴스 변수나 메서드를 사용해도 무방하다.
+        // StuTest 클래스에서 참조변수 s와 ss를 다르게 선언했음에도 불구하고 실행결과가 다른 것을 알 수 있음.
+        System.out.println("학생의 이름은  "+name+" 학생의 학번은 "+hakbun+"  학생의 점수는"+scores); //여기서도 굳이 s라는 참조매개변수로
+        // 인스턴스 변수에 접근할 필요가 없다.
+        // ArrayList는 출력시 배열처럼 그 배열의 주소값이 나오는 것이 아닌 리스트의 형태로 요소값들을 돌려준다.
+        for ( int tmp : scores){ // 굳이 s.scores와 같이 할 필요가 없다는 것.
+            System.out.print(tmp); // 요소들을 어레이리스트에서 하나씩 뽑아내기 위해 foreach문 사용
         }
     }
 
@@ -53,12 +57,16 @@ class Stu{
 class StuTest{
     public static void main(String [] args){
         Stu s = new Stu();
-        System.out.println(s.toString());
         s.scores.add(20);
         s.scores.add(30);
         s.scores.add(60);
         s.name = "홍홍홍";
         s.hakbun = 100;
-        s.printscore(s);
+        Stu ss = new Stu();
+        ss.scores.add(120);
+        ss.scores.add(130);
+        ss.scores.add(160);
+        ss.name = "a미미미";
+        ss.hakbun = 1000;
     }
 }

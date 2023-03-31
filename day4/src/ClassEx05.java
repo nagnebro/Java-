@@ -23,7 +23,7 @@ class Account{
 class Naver{
     //필드(정보)
     //고객들의 정보를 저장하는 타입 <>
-    ArrayList<Account> acclist = new ArrayList<>(); // 랑고객들의 정보가 담겨있는 참조변수들을 참조배열로 담겠다는 것.
+    ArrayList<Account> acclist = new ArrayList<>(); // 고객들의 정보가 담겨있는 참조변수들을 참조배열로 담겠다는 것.
 }
 
 public class ClassEx05 {
@@ -37,5 +37,6 @@ public class ClassEx05 {
 
         System.out.println(nav.acclist.get(0).id); // 참조변수의 인덱스로 접근해야 참조변수를 사용할 수 있고 그 이후에 다시 참조변수의
         // 인스턴스 변수를 사용할 수 있다.
+        //ArrayList는 요소에 접근하기 위해 인덱스 번호를 사용할때 get(인덱스번호)와 같이 사용한다.
     }
 }

@@ -5,11 +5,12 @@ class Poketmon{
     //1. 리턴 타입이 없는 메서드
     //2. 이름이 클래스명과 같다.
     Poketmon(){
-        //기본생성자, 모든 생성자에는 super();가 생략돼있다.
-    }
+        //기본생성자, 그리고 모든 생성자에 내부에는 조상클래스를 호출하는 super();가 생략돼있다.
+    }   //기본생성자가 없어도 상관은 없으나 사용자가 인스턴스를 생성하면서 생성자를 호출할때 인자가 비어있다면 해당하는 생성자가 없기 때문에 에러발생.
     String name;
     float weight; // float타입은 리터럴에 일일히 접미사 f를 붙여줘야하기 떄문에 귀찮으나 메모리 낭비는 덜하다.
     String charact;
+
 
     Poketmon(String name, float weight, String charact){ // 기본 생성자는 항상 생략돼있다. 그러나 생성자 하나라도 생성하게 되면 기본 생성자는 생성되지 않는다. 즉 매개변수를 받는
         //생성자만 생성하게 되면 인자값없이 인스턴스를 생성할 때 기본 생성자가 없기 때문에 에러가 발생한다.
@@ -20,13 +21,16 @@ class Poketmon{
     }
     Poketmon(String _name, float _weight){
         this(_name,_weight,"노랗다");
-        System.out.println(this.name);
-        System.out.println(name);
-        System.out.println(name); // 매개변수명 앞에 언더바를 사용시 매개변수와 지역변수를 구분할 수 있다. 위 코드를 보면 매개변수와
-        //인스턴스 변수의 이름이 같으면 매개변수의 값이 우선적으로 사용되는 것을 알 수 있다. 이를 구분하기 위해서는 참조변수를 가르키는 this를
-        //사용하던지 이와같이 언더바를 사용해 구분해주면 된다.
-        name = _name;
+        name = _name; // 여기서 매개변수에 언더바를 추가했기 때문에 name은 인스턴스 변수를 뜻하고 _name이 매개변수를 뜻한다.
         weight = _weight;
+    }
+    Poketmon(String name){
+        name = name; // 아래에서 p3 참조변수를 통해 꼬부기를 생성자에 넣게 되면 매개변수 name에 꼬부기가 넘어오게 된다.
+                    // 그러나 값을 입력받을때는 매개변수 name(매개변수) = name(인스턴스 변수) 의 형태로 되기 떄문에 구분을 시켜줘야 한다.
+        System.out.println(name); // 여기서 출력은 매개변수 name이 된다.
+        // 매개변수명 앞에 언더바를 사용시 매개변수와 지역변수를 구분할 수 있다.
+        // 위 코드를 통해 매개변수와 인스턴스 변수의 이름이 같으면 매개변수의 값이 우선적으로 사용되는 것을 알 수 있다. 이를 구분하기 위해서는 참조변수를 가르키는 this를
+        // 사용하던지 이와같이 언더바를 사용해 구분해주면 된다.
     }
 
     void attack(){
@@ -54,6 +58,8 @@ public class ClassEx03 {
         p.inform(p);
         Poketmon p2 = new Poketmon("피카츄",5.5f);
         p2.inform(p2);
+        Poketmon p3 = new Poketmon("꼬부기");
+        p3.inform(p3);
 
         //1. new 연산자를 통해 참조변수를 생성하게 되면 메모리 공간의 힙 영역이 생기게 된다.
         //2. 이 때 생성자를 호출하며 생성자의 매개변수에 맞게 초기화를 진행한다.

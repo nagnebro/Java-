@@ -100,17 +100,17 @@ class Reservation{
     }
 }
 
-class CGVTest{
-    public static void main(String [] args){
+class CGVTest {
+    public static void main(String[] args) {
 
 
         //입력받는 Scanner랑 변수 만들고
         //switch를 이용해라
         CGV cgv = new CGV();
         Scanner sc = new Scanner(System.in);
-        String id ;
+        String id;
         int idx;
-        while(true){
+        while (true) {
             System.out.println("---cgv---");
             System.out.println("1. 영화예매");
             System.out.println("2. 영화예매 조회");
@@ -121,7 +121,8 @@ class CGVTest{
             int menu = sc.nextInt();
 
 
-            Dan : switch(menu) { // menu랑 id굳이 두개로 나눠서 입력받을 필요 없이 1개만 계속 써도 관계없을 듯. 어차피 switch문
+            Dan:
+            switch (menu) { // menu랑 id굳이 두개로 나눠서 입력받을 필요 없이 1개만 계속 써도 관계없을 듯. 어차피 switch문
                 // 시작될 때 menu의 값은 이미 비교가 다 끝난 후니까 다시 입력을 받아도 됨
                 case 1: //예매정보, 고객정보 입력을 받아서 객체 생성 후 cgv 리스트에 저장.
                     sc.nextLine(); // nextInt와 nextLine이 같이 붙어있으면 개행문자 관계없이 바로 다음 입력으로 넘어가버린다
@@ -157,23 +158,17 @@ class CGVTest{
                     System.out.println(id);
                     idx = -1;
                     System.out.println(cgv.userlist.size());
-                    for ( int i = 0; i<cgv.userlist.size();i++) { // cgv userlist의 길이, 즉 예매한 유저들의 참조변수 길이를 뜻함.
-                        if (cgv.userlist.get(i).id.equals(id)) { // ==비교연산자로는 문자열의 값은 항상 false가 나오게 된다.
-                            // String은 참조변수로서 주소값이 다르기 떄문에 같다고 판별하지 않는 것이다.
-                            System.out.println("find idx");
-                            idx = i;
-                            break;
-                        }
-                    }  if(idx==-1){
+                    idx = findidx(cgv, idx, id);
+                    if (idx == -1) {
                         System.out.println("찾으시는 id가 없습니다");
-                        break;
-                        }
+                        break;  // case문의 breka; 이 부분은 코드의 재사용으로 불가능하지 않을까..
+                    }
                     User usrinf = cgv.userlist.get(idx);
                     Reservation movinf = cgv.reservelist.get(idx);
                     System.out.printf("id : %s\npw :%s\n휴대폰번호 : %s\n이메일 : %s\n",
-                            usrinf.id,usrinf.pw,usrinf.phone,usrinf.email);
+                            usrinf.id, usrinf.pw, usrinf.phone, usrinf.email);
                     System.out.printf("영화 제목 : %s\n영화 시간 :%s\n관객 수 : %s\n영화관 번호 : %s\n",
-                            movinf.movie_name,movinf.movie_time,movinf.movie_people,movinf.movie_room);
+                            movinf.movie_name, movinf.movie_time, movinf.movie_people, movinf.movie_room);
                     break;
                 case 3:
                     //삭제 list.remove(i) 를 이용할 것.
@@ -181,15 +176,10 @@ class CGVTest{
                     sc.nextLine();
                     id = sc.nextLine();
                     idx = -1;
-                    for ( int i = 0; i<cgv.userlist.size();i++) { // 조회와 마찬가지로 인덱스를 찾는 과정
-                        if (cgv.userlist.get(i).id.equals(id)) {
-                            System.out.println("find idx");
-                            idx = i;
-                            break;
-                        }                       // case2와 중복되는 코드, method로 뺴야함.
-                    }if(idx==-1) {
-                    System.out.println("찾으시는 id가 없습니다");
-                    break;
+                    idx = findidx(cgv, idx, id);
+                    if (idx == -1) {
+                        System.out.println("찾으시는 id가 없습니다");
+                        break;
                     }
 
                     cgv.userlist.remove(idx);
@@ -201,13 +191,23 @@ class CGVTest{
                     System.out.println("종료합니다");
                     return;
 
-                default :
+                default:
                     break;
-
-
-
+            }
         }
-    }
+    }//main의 끝
+
+        public static int findidx(CGV cgv, int idx, String id) {
+            for (int i = 0; i < cgv.userlist.size(); i++) { // cgv userlist의 길이, 즉 예매한 유저들의 참조변수 길이를 뜻함.
+                if (cgv.userlist.get(i).id.equals(id)) { // ==비교연산자로는 문자열의 값은 항상 false가 나오게 된다.
+                    // String은 참조변수로서 주소값이 다르기 떄문에 같다고 판별하지 않는 것이다.
+                    System.out.println("find idx");
+                    idx = i;
+                    return idx; // 혹은 break 후 바깥의 return으로 나가도 되지만 굳이 그럴 이유는 없다.
+                }
+            }
+            return idx;
+        }
 }
-}
+
 

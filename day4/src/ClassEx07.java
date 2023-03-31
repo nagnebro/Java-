@@ -14,14 +14,19 @@ class Bank {
 
     // 은행의 계좌 정보는 외부에서 수정돼서는 안된다. 즉 프로그램을 캡슐화 시켜줘야 한다. 접근 제어자에 대한 개념의 시작.
     // Bank 그 자체에서 말고 다른 클래스에서 참조변수를 이용한 접근을 금지시킨다.!!!!!!!!
-    // 그러므로 접근하고자 하는 클래스 내부에서 참조변수를 선언하고 그 참조변수를 이용한 static 메서드를 이용해 접근한다
-    // 보통 값을 바꾸는 기능을 하는 메소드를 setter, 값을 가져오는 것을 getter라고 한다.
+    // 접근하고자 하는 클래스의 참조변수를 선언하고 그 참조변수를 이용한 인스턴스 메서드를 이용해 private 참조변수에 접근한다
+    // 보통 값을 바꾸는 기능을 하는 메소드를 Setter, 값을 가져오는 것을 Getter라고 한다.
     private String accName;
     private String accNum;
     private String accPw;
     private int balance= 1000000;
 
     Bank() { }
+
+    Bank (String accName, int balacne){
+        this.accName = accName;
+        this.balance = balacne;
+    }
     int givemoney(int money){
         if(this.balance>=money) {
             this.balance -= money;
@@ -31,9 +36,9 @@ class Bank {
     }
 
     int innermoney(int money){
-        this.balance += money;
-        System.out.println("잔액은 : "+this.balance);
-        return this.balance;
+        System.out.println("기존 잔액"+balance+"에 "+money+"를 더해서 잔액은 : "+(balance+money));
+        balance += money;
+        return balance;
 
     }
     Bank(String accName, String accNum, String accPw, int balance) {
@@ -53,10 +58,12 @@ class Bank {
 
 
 
-public class CastingEx07 {
+public class ClassEx07 {
 
     public static void main(String[] args) {
         Bank yeong = new Bank();
+        Bank chan = new Bank("1234",500);
+        chan.info();
         // yeong.balance = 50000; 다음과 같이 직접적인 접근이 불가능하다.
         yeong.givemoney(5000);
         yeong.innermoney(5000000);
