@@ -22,7 +22,7 @@ public class OverloadingEx {
         add(3.4f,5);
         add(3.5f,6.7f);
         System.out.println(-2*-2);
-        int c = -5;
+        int c = 5;
         c= -c;
         System.out.println(c);
     }

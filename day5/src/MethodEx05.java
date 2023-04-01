@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 class ReionTrainList{
-    String [] regionlist = {"부산","서울","대구","인천","강원도"};
-    int [] regionfee = {3000,10000,4000,2000, 7000};
+        String [] regionlist = {"부산","서울","대구","인천","강원도"};
+        int [] regionfee = {3000,10000,4000,2000, 7000};
     String [] trainlist = {"ktx","무궁화","새마을","srt"};
     int [] trainfee = {10000,1000,2000,9000};
     //========================== 얘네 자체를 2차원 배열로 저장
@@ -11,6 +11,9 @@ class ReionTrainList{
     // 출력하는 부분만 공통 Static메서드로 묶던지.
     // 극단적으로 생각해봐라. 그럼 train list랑 region list이외에 다른 리스트가 계속 추가된다고 하면 그 때마다 클래스가 생기는 것도 말이안된다
     // 반복을 줄여라 반복되는 코드나 행동을 줄여라.
+    // user라ㄴ는 클래스를 새로 만들고 입력값을 2개 받은 걸 저장해놓은 다음에 그 입력값을 이용해 user의 참조변수를 생성하며 생성자에 값을 넣어준다.
+    // 그떄 유저의 참조변수 u가 있다고 했을떄 그 u를 통해 인스턴스 변수에 접근하게 되면 region과 train입력값에 해당하는 각각의 변수들을 이용해
+    // for문을 돌려 각각의 요금을 구할 수가 있다.
 }
 
 //public class MethodEx05 {
