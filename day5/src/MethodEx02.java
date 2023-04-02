@@ -124,12 +124,12 @@ class MethodTest1{
         int age = 26;
         String name = null;
         name = getname(age); // 전달인자 main메서드의 age룰 getname메서드로 넘겨줌. getname메서드에서는 매개변수로 활용됨.
-        System.out.println(name); // getname에서 인자로 전달받은 age를 출력하고 return으로 문자열을 돌려줌.
+        System.out.println(name); //
 
     }
 
     public static String getname(int age){ // main 메서드로부터 받은 인자값이 매개변수 age로 다시 들어오게 됨.
-        System.out.println(age);
+        System.out.println(age);  메인 메서드의 getname()에서 인자로 전달받은 age를 출력하고 return으로 문자열을 돌려줌.
         String name = "김영찬"; // 문자열을 return함으로서 호출한 메서드에서 리턴값을 재사용 할 수 있게 됨.
         return name;
     }
