@@ -86,9 +86,5 @@ class ArrayQueue {
         while (!qu1.isEmpty()) { // 비어있으면 중단.
             System.out.println(qu1.poll()); //조회
         }
-
-
-
-
     }
 }
