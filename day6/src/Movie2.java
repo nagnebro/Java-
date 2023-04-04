@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+
+// MovieInfrom 클래스의 메인메서드에 정의된 것들을 인스턴스 메서드로 정리한 버전.
 class MovieInform{
 
     ArrayList<Integer> s_list = new ArrayList(Arrays.asList(0,0,0,0,0,0,0,0)); // seat list

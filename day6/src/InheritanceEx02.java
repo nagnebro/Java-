@@ -37,14 +37,16 @@ class Person1{
    // Person1(String name, String age) 이 코드를 작성시에 Person1() 기본 생성자가 생성되지 않기 떄문에 컴파일 에러발생.
 
 
-
+    public Person1(String name, String age) {
+        this.name = name;
+        this.age = age;
+    }
 }
 
 class Student extends Person1{
     Student(String name, String age){
-        super(); // 무조건 첫번째 줄에 선언해야한다. 작성하지 않을 시 묵시적으로 무조건 첫째줄에서 실행됨. 인스턴스 멤버들 초기화해야 사용할 수 있으니 최우선적임.
-        this.name = name;
-        this.age= age;
+        super(name,age); // 무조건 첫번째 줄에 선언해야한다. 작성하지 않을 시 묵시적으로 무조건 첫째줄에서 실행됨. 인스턴스 멤버들 초기화해야 사용할 수 있으니 최우선적임.
+
     }
     void study(){}
 }
@@ -53,8 +55,7 @@ class Teacher extends Person1{
 
     Teacher(String name, String age){
         // super(); 를 통해 name과 age가 초기화된 상태에서 아래코드가 실행되기 떄문에 문제가 없음.
-        this.name = name;
-        this.age= age;
+        super(name,age);
     }
 
     void teach(){}

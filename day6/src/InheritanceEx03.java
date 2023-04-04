@@ -48,6 +48,9 @@ class HighElf extends Elf{
         return "[하이엘프] Name :"+name+", HP: "+hp+", MP: "+mp;
     }
 
+    // toString 메서드의 내용중에서 하이엘프,엘프,엘프로드 등과 같이 일일히 이름을 바꿔주지 않아도 되고 다 공통적인 요소만 들어간다면 최고 조상인 엘프
+    // 클래스에만 toString을 정의해주고 사용해주면 중복을 줄일 수 있다.
+
     public HighElf(String name, int hp, int mp) {
         super(name, hp);
         this.mp = mp;

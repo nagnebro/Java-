@@ -3,7 +3,7 @@ class Node{
     int data;  // 데이터
     Node next; // 다음 주소
 
-    //LinkedList는 이 Node클래스를 이용해 데이터와 주소를 확인하고 데이터끼리 연결시켜주는 동작 원리를 가지고 있다.
+    //LinkedList는 이 Node를 이용해 데이터와 주소를 확인하고 데이터끼리 연결시켜주는 동작 원리를 가지고 있다.
 }
 
 public class LinkedListEx {
@@ -12,7 +12,7 @@ public class LinkedListEx {
         int count = 0;
 
         // ArrayList는 배열을 기반으로 프로그래밍 돼있다. 즉 데이터가 늘어나거나 줄어들떄 마다 배열을 복사하고 값을 옮겨주기 위한 메모리 사용이 계속 일어난다.
-        // LinkedList는 데이터를 저장할 주소값이 여러개로 이어져있다고 생각하면된다. 추가, 삭제가 어레이리스트보다 빠르다.
+        // LinkedList는 데이터를 저장할 주소값을 가진 여러개의(노드)로 이어져있다고 생각하면된다. 추가, 삭제가 어레이리스트보다 빠르다.
 
         //리스트
         // -배열기반이 아니라 리스트 기반
@@ -69,7 +69,7 @@ public class LinkedListEx {
 
         Node del = node1;
 
-        // 대충 스택은 이런 구조이다 라고만 생각하고 넘어가기 ?? 스택과 노드와 컬렉션과 링크드리스트의 관련성??
+        // 대충 LinkedList는 이런 구조이다 라고만 생각하고 넘어가기 ?? 스택과 노드와 컬렉션과 링크드리스트의 관련성??
         head.next = del.next;
 
     }

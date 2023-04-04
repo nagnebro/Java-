@@ -4,6 +4,7 @@ public class Bank {
     String accName;
     int money;
     int pw;
+
 }
 
 class CheckCard extends Bank{
