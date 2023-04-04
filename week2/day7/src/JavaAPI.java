@@ -58,36 +58,33 @@ class Dice{
     public static void main(String[] args) {
         Random r = new Random();
 
-        int [] list = new int[6];
+        int [] res_list = new int[6];
         for( int i = 1; i<=100; i++){
             int num = r.nextInt(1,7); // 1~6사이의 숫자가 나옴.
             if( num == 1){
-                list[0] +=1;
+                res_list[0] +=1;
             }else if( num == 2){
-                list[1] +=1;
+                res_list[1] +=1;
             }
             else if( num == 3){
-                list[2] +=1;
+                res_list[2] +=1;
             }
             else if( num == 4){
-                list[3] +=1;
+                res_list[3] +=1;
             }
             else if( num == 5){
-                list[4] +=1;
+                res_list[4] +=1;
             }
             else if( num == 6){
-                list[5] +=1;
+                res_list[5] +=1;
             }
         }
         int j = 0;
-        for ( int tmp : list){
-
-            System.out.printf("%d의 개수 : %d \n",j+1,list[j]);
-            j++;
-        }
+        print(res_list);
         // ================for문 한개만으로 6의 배수를 이용해서 더 간단하게 만들 수 있을 것 같은데================================
         int [] num_list = {1,2,3,4,5,6}; // 숫자비교용 배열
         int [] list2 = new int[6]; // 개수 저장하는 배열
+
         for( int i = 1; i<=100; i++) {
             int ran = r.nextInt(1, 7);
             for(int k = 0; k<num_list.length ; k++) {
@@ -98,14 +95,32 @@ class Dice{
                 }
             }
         }
-        j=1;
-        for ( int tmp : list2){
+        print(list2);
+        // ============================아마 아래 방법이 가장 효율적이지 않을까 생각된다==========================================
+        int [] list3 = new int[6];
+        int count = 1;
+        for( int i = 1; i<=100; i++) {
+            int ran = r.nextInt(1, 7); // 1~6사이의 랜덤 주사위 숫자를 뽑는다.
+            list3[ran-1] += 1;
+            count++;
+            if(count == 7){
+                count = 1;
+            }
+        }
+        print(list3);
 
-            System.out.printf("%d의 개수 : %d \n",j,list2[j-1]);
+
+
+
+    }
+
+    public static void print(int [] res_list){
+        int j = 1;
+        for ( int tmp : res_list){
+
+            System.out.printf("%d의 개수 : %d \n",j,res_list[j-1]);
             j++;
         }
-
-
-
+        System.out.println("================================");
     }
 }

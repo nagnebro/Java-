@@ -89,8 +89,12 @@ public class OverrideEx02 {
         Triangle t = new Triangle("triangle",5,3);
         Square s = new Square("square",7);
         shape_list[0] = (Shape)c; // 생략가능
-        shape_list[1] = (Shape)t;
-        shape_list[2] = (Shape)s;
+        shape_list[1] = (Shape)t; // 조상 클래스 타입에 자손 타입의 인스턴스를 넣을 수 있음  >> 다형성
+        shape_list[2] = (Shape)s; // c t s 모두 인스턴스는 shape의 자손 타입이지만 참조변수는 shape타입임.
+        // double a1 = shape_list[0]).r; 다음과 같이 작성 불가능. 아래와 같이 다운캐스팅을 해줘야 한다.
+        // 자손타입의 인스턴스를 가진 조상타입의 참조변수로 area에 접근할 수 있는 이유는 조상인 Shape클래스에 area()가 정의돼있기 떄문이다.
+        // 조상 자신의 멤버는 사용하는 것이 가능하다.
+        double a2= ((Circle)shape_list[0]).r;
         System.out.println(c.area());
         System.out.println(t.area());
         System.out.println(s.area());
