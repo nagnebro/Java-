@@ -63,7 +63,21 @@ class Ex10{
     int win = 0;
     String flag ;
 
-
+    void set(){
+        for ( int i = 0; i< game.length; i++){
+            for (int j = 0; j<game[i].length; j++){
+                game[i][j] = ".";
+            }
+        }
+    }
+    void print(){
+        for ( String[] tmp1 : game){
+            for ( String tmp2 : tmp1){
+                System.out.printf("[%s]",tmp2);
+            }
+            System.out.println();
+        }
+    }
 
     void check(int input){
         //[input/game.length] 이게 행 번호가 됨. 즉 3행 5열이라치면 3을 입력하면 1행인데 3에 행인 3을 나누면 1이 나오기떄문ㅁ에 1행으로 넘어감
@@ -81,13 +95,16 @@ class Ex10Test {
         Scanner sc = new Scanner(System.in);
         Ex10 player1 = new Ex10("O");
         Ex10 player2 = new Ex10("X");
-
+        player2.set();
         while(true){
+            player2.print();
             System.out.printf("번호를 입력하세요");
             int input1 =sc.nextInt();
             player1.check(input1);
+            player2.print();
             System.out.printf("번호를 입력하세요");
             int input2 =sc.nextInt();
+            player2.check(input2);
         }
     }
 }
