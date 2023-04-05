@@ -17,14 +17,31 @@ interface Alarm{
     void beep(); // 추상메서드만 가능.
     void playMusic();
 }
-
-class SmartPhone implements Alarm{
+interface Phone{
+    void call();
+}
+interface Messenger{
+    void sendMsg();
+    void receiveMsg();
+}
+class SmartPhone implements Alarm, Phone, Messenger{
     @Override
     public void beep() { // 인터페이스의 추상메서드는 public abstract가 생략돼있다. 즉 접근제어자가 Public이므로 오버라이딩할때 접근제어자의
         // 범위가 같거나 더 넓은 걸 사용해야 한다. 따라서 접근제어자의 범위가 가장 넓은 Public을 붙여준다.
-
     }
 
+    @Override
+    public void call() {
+
+    }
+    @Override
+    public void sendMsg() {
+
+    }
+    @Override
+    public void receiveMsg() {
+
+    }
     @Override
     public void playMusic() {
 
@@ -46,7 +63,15 @@ public class InterfaceEx01 {
 //    -서로 다른 객체에게 관계성 부여(업캐스팅 가능)
 //    -한 객체를 다양한 인터페이스로 해석 가능(다형성)
     public static void main(String[] args) {
+        //다형성
+        SmartPhone s1 = new SmartPhone();
 
+        //인터페이스
+        // -자신이 멤버로 가지고 있는 메서드, 상수에만 접근할 수 있다.
+        // 그러나 오버라이딩을 통하면 자손의 메서드로도 접근할 수 있다.
+        Alarm a1 = s1;
+        Messenger m1 =s1;
+        Phone p1 = s1;
     }
 
 }
