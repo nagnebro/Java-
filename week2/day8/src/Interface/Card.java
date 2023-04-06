@@ -39,15 +39,15 @@ public abstract class Card {
 
 
 // 현대카드의 기능, 쇼핑 주유
-interface Shopping{
+interface Shopping{ // 쇼핑 기능을 가진 인터페이스
 
     void shop();
 }
 
-interface Point{
+interface Point{ // 포인트 적립 기능을 가진 인터페이스
     void plusPoint();
 }
-interface Movie{
+interface Movie{ // 영화 기능을 가진 인터페이스
 
 }
 

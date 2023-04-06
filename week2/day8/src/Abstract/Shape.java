@@ -8,6 +8,9 @@ public abstract class Shape {
     // 정삼각형을 그린다.
     // 정사각형을 그린다.
     abstract void draw(); // 추상 메서드로 선언함으로서 자손클래스에서 무조건 구현하게끔 강제성을 부여
+    void color(){
+        System.out.println("색을 칠합니다");
+    }  // 도형을 색칠하는 메서드. 굳이 색칠하는 기능은 없어도 되니까 추상메서드가 아닌 일반 메서드로 선언함.
 }
 
 class Triangle extends Shape{
@@ -37,6 +40,7 @@ class ShapeTest{
         t.draw();
         c.draw();
         s.draw();
+        s.color();
     }
 }
 

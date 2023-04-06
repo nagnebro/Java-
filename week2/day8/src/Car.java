@@ -22,7 +22,8 @@ class FireEngine extends Car{
     int x= 20;
     void drive(){
         System.out.println("FireEngine의 운전");
-    }
+    } // 오버라이딩
+
     void water(){
         System.out.println("소화");
     }
@@ -32,7 +33,7 @@ class Ambulance extends Car{
     int x= 10;
     void drive(){
         System.out.println("AmbulanceEngine의 운전");
-    }
+    } // 오버라이딩
     void siren(){
         System.out.println("에에엥");
     }

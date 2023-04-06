@@ -13,7 +13,7 @@ package StarCraft;
 
 
 interface Repairable{} // 기계들만 고치기 위해 구분시켜줄 인터페이스
-interface Medical{}
+interface Medical{} // 사람들만 치료하기 위해 구분시켜줄 인터페이스
 class Test{
     public static void main(String[] args) {
         StarCraft st = new StarCraft();
