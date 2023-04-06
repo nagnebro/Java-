@@ -25,7 +25,7 @@ class MyGrid extends JFrame { // JFrame import
         panel.setLayout(new GridLayout(4,4)); // rows : 열 ,  columns : 행
         // GridLayoutds
         for (int i = 1 ; i <= 16; i++){
-            list.add(new JButton(i+""));
+            list.add(new JButton(i+"")); // 혹은 String.valueOf(i); 의 형태도 가능함.
             panel.add(list.get(i-1));
         }
         //화면 배치 설정

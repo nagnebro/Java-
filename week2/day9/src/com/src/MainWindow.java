@@ -31,7 +31,8 @@ public class MainWindow extends JFrame {
 
         Dimension sreenSize =  Toolkit.getDefaultToolkit().getScreenSize();
         // 창 위치 setLocation(화면의너비, 화면의 높이)
-        setLocation((sreenSize.width-1000) / 2, (sreenSize.height-1000) / 2);
+        setLocation((sreenSize.width-1000) / 2, (sreenSize.height-1000) / 2); // 생성자로 0,0 을 받고
+        // setLocation 메서드로 다시 창의 위치를 조절해준다.
 
         // 메뉴 버튼 표시를 위한 보조프레임 설정
 
@@ -40,8 +41,9 @@ public class MainWindow extends JFrame {
         // setSize(x,y) -> 컴포넌트들의 위치를 변경해주는 메서드
         // setLocation() ->  너비높이만 변경하고 싶다.
         // setBounds() -> 위 두가지 기능을 한번에 합친 메서드 기능
-        mMenuPanel = new JPanel();
+        mMenuPanel = new JPanel(); // 메인 판넬
         mMenuPanel.setBounds(x,y,width,height);
+
 
         // 첫 번째 아이콘 1. 고객정보 확인하기 버튼을 만들기
         for(int i = 1 ; i<=9 ; i++) {

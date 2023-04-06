@@ -1,19 +1,13 @@
-
-
-
-
 import java.awt.*;
 
 import javax.swing.*;
 
 class GuestWindow extends JFrame{
-
-
     // 그래픽 프레임창의 기본설정은 생성자 안에다가 설정
     public GuestWindow(String title, int x, int y, int width, int height) {
 
         initContainer(title, x, y, width, height);
-        initContainer(title,0,0,1000,1000);
+        initContainer(title,0,0,500,500);
         setVisible(true);
         setResizable(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -22,7 +16,8 @@ class GuestWindow extends JFrame{
     public void initContainer(String title,int x,int y ,int width,int height) { // 컴포넌트 (버튼,텍스트필드,라벨,이미지)
         setTitle(title);
         setBounds(x,y,width,height); //프레임의 위치,크기 설정
-        setLayout(null);              // 프레임 미설정(배치)
+        setLayout(null);              // 프레임 미설정(배치) 얘를 null값을 주지 않으면
+        // 본인이 계쏙 센터 맞출려고 함.
 
         Font ft;
         ft = new Font("함초롬돋음",Font.BOLD,20); // 글꼴설정
@@ -30,9 +25,9 @@ class GuestWindow extends JFrame{
         // 너비와 높이를 필드로 가지고 있는 클래스
         // 툴킷 클래스
 
-        Dimension sreenSize =  Toolkit.getDefaultToolkit().getScreenSize();
-        // 창 위치 setLocation(화면의너비, 화면의 높이)
-        setLocation((sreenSize.width-1000) / 2, (sreenSize.height-1000) / 2);
+//        Dimension sreenSize =  Toolkit.getDefaultToolkit().getScreenSize();
+//        // 창 위치 setLocation(화면의너비, 화면의 높이)
+//        setLocation((sreenSize.width-1000) / 2, (sreenSize.height-1000) / 2);
 
         // 여러 컴포넌트 올리는 보조 프레임 생성
         JPanel userPanel = new JPanel();
@@ -54,7 +49,9 @@ class GuestWindow extends JFrame{
         // userPanel.add()추가
 
         // 보조프레임 -> 메인프레임
-        add(userPanel);
+        add(userPanel); // 그냥 add() 메서드는 JFrame의 메서드이다. JFrame의 화면에 프레임을 더해주느 메서드이다.
+        // 쉽게 설명하면 최종적으로 add();하는 것이 메인프레임에 올리는 것이고 나머지 JPanel들은 모두 보조프레임이라고 보면 된다.
+        // 보조프레임에는 라벨이나 버튼등 여러가지 컴포넌트를 추가할 수 있다.
 
 
 
@@ -67,14 +64,16 @@ class GuestWindow extends JFrame{
         // 라벨을 생성 글꼴 설정
         titleLabel.setFont(ft);
         titleLabel.setForeground(Color.pink);  // 글꼴 색상
-        titlePanel.add(titleLabel);
+        titlePanel.add(titleLabel); // titlePanel에 titleLabel값을 대입
         titleLabel.setFont(ft);
 
 
+
         // 이름 : 입력받는 text 필드
-        JPanel namePanel = new JPanel();
+        JPanel namePanel = new JPanel();// 이름을 입력받는 텍스트 박스 및 문자열을 담을 파넬을 생성
         namePanel.setBounds(0, 400, 1000, 50);
-        add(namePanel);
+        add(namePanel); // 사실 메인메서드는 계속 실행되기 때문에 namePanel을 메인 프레임에 먼저 더하고 이후에 namePanel에
+        // 라벨이나 텍스를 대입해도 관계없다.
 
 
         JLabel nameLabel = new JLabel("이 름");
@@ -105,7 +104,6 @@ class GuestWindow extends JFrame{
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBounds(0, 500, 1000, 50);
 
-
         JLabel buttonLabel = new JLabel("쇼핑하기", new ImageIcon("./images1/user1.png"),JLabel.RIGHT);
         buttonPanel.add(buttonLabel);
         buttonLabel.setFont(ft);
@@ -124,8 +122,6 @@ class GuestWindow extends JFrame{
 
 class Test{
     public static void main(String[] args) {
-        new GuestWindow("제목",300,300,100,200);
-
-
+        new GuestWindow("제목",1000,1000,100,200);
     }
 }

@@ -16,7 +16,9 @@ class MyFrame extends JFrame{ // 이렇게 상속받아서 하는게 참조변�
 
 
 
-        setVisible(true);
+        setVisible(true); // 정확히 말하자면 JFrame을 상속하고 생성자가 실행되는 것 자체만으로도 Main메서드에서 실행창이 생성되긴 한다.
+        // 다만 그 창이 보이냐 안보이냐는 setVisable로 컨트롤 할 수 있는 거고 그 창에 대한 판넬에 대한 설정을 JFrame클래스의 set이 들어간
+        // 메서드로 하는 것이다.
     }
 }
 

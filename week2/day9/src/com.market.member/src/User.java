@@ -35,3 +35,7 @@ class UserTset{
         User u = new User("김영찬","ㄴㄴ");
     }
 }
+
+
+
+
