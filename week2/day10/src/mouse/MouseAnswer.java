@@ -19,7 +19,9 @@ class Main2 extends JFrame implements MouseListener{
 
         add(pan);
         // 실제 메인프레임에 이벤트가 설정
-        addMouseListener(this);
+        pan.addMouseListener(this); // pan을 붙이든 안 붙이든 똑같다.
+        // 어차피 기본 프레임 위에 pan이 덮어쓰기 돼있는건데 마우스가 올라가면 그 두개의 프레임 구분없이 마우스가 올라가있는 것으로
+        // 인식하기 때문. 하지만 레이아웃에 프레임이 나눠져있다면 pan.addMoustListener로 접근하는 것이 맞다.
 
 
         setVisible(true);

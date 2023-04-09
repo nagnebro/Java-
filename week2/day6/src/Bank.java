@@ -7,7 +7,7 @@ public class Bank {
 
 }
 
-class CheckCard extends Bank{
+class 터CheckCard extends Bank{
 
     String cardNumber;
     String cardName;

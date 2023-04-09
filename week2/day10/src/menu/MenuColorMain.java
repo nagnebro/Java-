@@ -23,7 +23,7 @@ public class MenuColorMain extends JFrame implements ItemListener, MouseListener
 
 
 
-        setVisible(true); // 얘가 젤 밑에 있어야 , 그니까 init()보다 아래에 있어어ㅑ 처음 창 열릴때 바로 생성된다
+        setVisible(true); // 얘가 젤 밑에 있어야 , 그니까 init()보다 아래에 있어어 처음 창 열릴때 바로 생성된다
         // 창은 건드릴떄 main 메서드가 다시 도는데 setvisable이 init()보다 위에 있으면 안보이다가 창 건들면
         // 그떄 setvisable이 활성화됨
     }

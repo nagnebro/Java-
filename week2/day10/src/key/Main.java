@@ -32,21 +32,21 @@ public class Main extends JFrame implements KeyListener {
         // 인터페이스의 메서드가 하나인 경우에는 어댑터 클래스가 없다.
         // 리스너 인터페이스들은 그에 대응하는 어댑터 클래스가 있다.
 
-        setTitle("키 어대벝");
+        setTitle("키 어댑터");
         setSize(300,400);
 
-        JLabel l = new JLabel("키 어댑터",JLabel.CENTER);
+        JLabel l = new JLabel("키 어댑터",JLabel.CENTER); // 라벨을 실행창의 정가운데에 위치시킨다.
         JTextField t = new JTextField(10);
 
         // 보더레이아웃 add(위치, 컴포넌트)
         // "North" 문자열로 주고 앞 글자 무조건 대문자.
-        add("North",t);
-        add("Center",l);
+        add("North",t);// 텍스트 필드를 보더레이아웃의 제일 상단에 위치시킨다.
+        add("Center",l); // 라벨을 보더레이아웃의 센터에 위치시킨다.
 
-        t.addKeyListener(this);
+        t.addKeyListener(this); // JtextField에 키리스너를 추가함으로써 텍스트 창에 키보드 입력을 감지한다.
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        addKeyListener(this);
+
         setVisible(true);
     }
 
@@ -59,7 +59,7 @@ public class Main extends JFrame implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) { // 타이핑할때
-        //System.out.println("타이핑");
+        System.out.println("타이핑");
     }
 
     @Override
@@ -70,6 +70,6 @@ public class Main extends JFrame implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) { // 뗄 때
-        //System.out.println("키를 뗐다");
+        System.out.println("키를 뗐다");
     }
 }

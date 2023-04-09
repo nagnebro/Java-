@@ -19,7 +19,7 @@ public class CircleAnswer extends JFrame implements ActionListener, ItemListener
 
     CircleAnswer() { // 메인프레임 정도만 설정해줄 생성자
         setTitle("원넓이 구하기");
-        setLayout(new BorderLayout(10, 10)); // 이건 또 뭐야..?
+        setLayout(new BorderLayout(10, 10)); //보더레이아웃간의 간격을 10씩 준다는 것.
         setSize(400, 300);
 
         showNorth(); // borderlayout을 위로 배치할 메서드를 만듦.
@@ -47,7 +47,7 @@ public class CircleAnswer extends JFrame implements ActionListener, ItemListener
         t1 = new JTextField(10); // 원의 반지름 입력할 텍스트 필드
         t2 = new JTextField(10); // 원의 넓이를 입력받지는 않고 결과값을 보여줄 텍스트 필드
 
-        // 버튼이나 텍스트필드같은 컴포넌트에느 보여지긴 하지만 비활성화 시키는 메서드가 있다
+        // 버튼이나 텍스트필드같은 컴포넌트에는 보여지긴 하지만 비활성화 시키는 메서드가 있다 그니까 사용자가 입력값은 못받는 거임
         t2.setEnabled(false);
         pan1.add(l1);
         pan1.add(t1);
@@ -70,8 +70,6 @@ public class CircleAnswer extends JFrame implements ActionListener, ItemListener
         area.setText("이 영역에 원의 넓이를 계산하는 과정");
 
         area.setForeground(Color.red); // area안의 글자색을 설정해주는 메서드
-        JPanel pan1 = new JPanel();
-        JPanel pan2 = new JPanel();
         panel.add(area);
         add(panel, BorderLayout.CENTER);
     }
@@ -136,7 +134,6 @@ public class CircleAnswer extends JFrame implements ActionListener, ItemListener
 
 
     }
-
 
     @Override
     public void keyTyped(KeyEvent e) {

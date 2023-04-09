@@ -6,7 +6,7 @@ class GuestWindow extends JFrame{
     // 그래픽 프레임창의 기본설정은 생성자 안에다가 설정
     public GuestWindow(String title, int x, int y, int width, int height) {
 
-        initContainer(title, x, y, width, height);
+
         initContainer(title,0,0,500,500);
         setVisible(true);
         setResizable(true);
