@@ -20,6 +20,7 @@ class MouseWheelMain2 extends JFrame implements MouseWheelListener{
         setTitle("마우스 이벤트");
         setSize(400,200); //setLayout 설정 하면 색 안나온다.
         label.setFont(new Font("굴림체",Font.PLAIN,size));
+
         pan.add(label);
 
         add(pan);
@@ -44,7 +45,7 @@ class MouseWheelMain2 extends JFrame implements MouseWheelListener{
         //  마우가가  뒤로 움직임  1
         int res = e.getWheelRotation();
 
-        int red = r.nextInt(256);
+        int red = r.nextInt(256); // random의 nextInt
         int green = r.nextInt(256);
         int blue = r.nextInt(256);
 
