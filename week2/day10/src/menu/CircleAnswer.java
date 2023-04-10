@@ -176,9 +176,18 @@ public class CircleAnswer extends JFrame implements ActionListener, ItemListener
 
     }
 
-    public void repeat(Object obj,Object e) {
 
-        if (obj == t1 && ((KeyEvent)e).getKeyCode() == 10 || obj == cal) {
+    //ActionListenr를 오버로딩해도 가독성이 좋을듯. 매개변수 개수만 다르니까?
+    public void repeat(Object obj,Object e) { // keyevent 와 actionevent타입의 변수를 모두 받기 위해 참조변수 타입으로
+        // Object타입으로 선언했다. 이렇게 되면 obj에는 실행된 이벤트의 getsource()값이 넘어와 실행시킨 참조변수값이 넘어오고
+        // e에는 키이벤트나 액션이벤트의 참조변수가 넘어오게 된다.
+        // 여기서 의문점은 e에 actionevent e가 넘어올 수도 있는데 얘를 아래와 같이 keyevent를 하면 에러가 발생하지않나?
+
+        if ((obj == t1 &&  ((KeyEvent)e).getKeyCode() == 10 )|| obj == cal) { // 이 조거때문에 위 의문점에 해당하는 부분이 해결딘다
+            // obj의 인스턴스가 t1의 것이라면 애초에 e도 keyevent가 들어왔을 것이므로 에러가 발생하지 않는다.
+            // 예를 들어 actionListener인 계산버튼 cal의 인스턴스가 obj에 들어오고 actionevent가 e에 들어왔다고 가정하면
+            // 첫번째 조건인 obj==t1에서 이미 &&조건은 비교를 끝내버리기 때문에 다음의 ((KeyEvent)e) 가 실행되지 않기 때문에
+            // 캐스팅 에러가 발생하지 않는다.
             if (t1.getText().isEmpty()) {
                 area.setText("값을 입력하세요");
                 return;

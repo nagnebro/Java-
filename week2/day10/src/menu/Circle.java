@@ -8,7 +8,7 @@ public class Circle extends JFrame implements ActionListener , KeyListener {
 
 
     JTextField r_textfield = new JTextField(10);
-    JTextField a_textfield = new JTextField(5);
+    JTextField a_textfield = new JTextField(10);
     JButton btn1 = new JButton("계산");
     JButton btn2 = new JButton("리셋"); // null로 선언하고 아래 메서드에서 생성하는게 더 효율적.
     JTextArea input = new JTextArea(3, 20);
@@ -96,13 +96,14 @@ public class Circle extends JFrame implements ActionListener , KeyListener {
 
     @Override
     public void actionPerformed(ActionEvent e) { // 계산이나 리셋을 하기 위해 인터페이스 메서드를 오버라이딩.
+
         Object obj = e.getSource();
         double result = 0;
-        if (obj == btn1) {
+        if (obj == btn1  || obj == r_textfield) {
             double r = Double.parseDouble(r_textfield.getText());
             result = r * r * 3.14;
             a_textfield.setText(result + "");
-            input.setText(String.format("%f * %f * 3.14 = %f", r, r, result));
+            input.setText(String.format("%f * %f * 3.14 = %.4f", r, r, result));
 
         } else if (obj == btn2) {
             r_textfield.setText(null);
@@ -127,8 +128,15 @@ public class Circle extends JFrame implements ActionListener , KeyListener {
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
-
+    public void keyPressed(KeyEvent e) { // r_textfield에서 버튼이 눌릴때 발생하는 키 이벤트
+        Object obj = e.getSource(); // 그떄 키이벤트를 발생시킨 참조변수의 주소를 저장시켜준다.
+        if (e.getKeyCode() == 10) { // 키 이벤트를 발생시킨 참조변수의 키코드가 엔터라면 액션이벤트 메서드를 실행
+            System.out.println("hi");
+           // actionPerformed((ActionEvent) obj); 다음과 같이 작성하면 에러가 발생한다. 구체적인 상속계층도는 모르겠으나
+            // KeyEvenet 클래스와 ActionEvent 클래스는 서로 상속관계가 아닌듯하다. 그래서 다형성을 가질 수 없고 캐스팅 될 수 없음
+            // 따라서 두 타입의 참조변수를 모두 받기 위해서는 내가 작성했던 것처럼 Object타입으로 매개변수를 받는 메소드를 따로 생성해주어야한다
+            // CircleAnswer 클래스를 참고할 것.
+        }
     }
 
     @Override
