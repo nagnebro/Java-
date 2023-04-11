@@ -1,5 +1,7 @@
 package Thread;
 
+import com.sun.security.jgss.GSSUtil;
+
 import java.util.Random;
 
 // runnable 인터페이스는 run 메서드만 오버라이딩 해주면 된다.
@@ -198,7 +200,7 @@ class Mushroom extends Hero{
 }
 
 
-class SuperMarioTest{
+class SuperMarioTest extends Thread{
     public static void main(String[] args) {
         // 마리오 클래스, 마리지 클래스, 피치공주, 버섯돌이
         // 이름, 목숨, 기본 레벨 10
@@ -244,8 +246,27 @@ class SuperMarioTest{
         mushroom.start();
         peach.start();
         cooper.start();
-        while(Cooper.cooper_hp>0){
-           System.out.println(Cooper.cooper_hp);
+        while(true){
+//            try {
+//                Thread.sleep(100);
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
+//            if (Cooper.cooper_hp < 0 ){
+//                System.out.println("쿠퍼가 쓰러졌습니다.");
+//                break;
+
+            if (Cooper.cooper_hp < 0 ) {
+                System.out.println("쿠퍼가 쓰러졌습니다.");
+                break;
+            }
+            // setDaemon을 해서 메인이 종료되야 스레드 4개가 모두 종료가 되는 구조인데 위와 같이 메인에서 스레드를 실행시킨 후 무한루프를 돌다가
+            // 스레드로 인해 특정조건이 충족(여기서는 쿠퍼의 체력이 0아래일때)됐을 때 무한반복문을 탈출하고 그러면 메인이 종료되는 것이 정상이다.
+            // 그러나 위의 코드를 sleep와 예외 구문 없이 실행해보면 조건이 됐음에도 계속 실행되는 걸 알 수 있는데 아마도 무한반복문의 스케쥴링?
+            // 텀이 굉장히 짧기 떄문에 조건을 검사도 안하고 그냥 지나가는 것 같다. (스레드 역시 sleep()로 지연을 안시켜줬다면 무한반복과 마찬가지의 개념이다.)
+            // 그래서 print문을 한개 넣던지 혹은 위와 같이 스레드로 지연을 시켜주면 정상적으로 조건을 탈출하며 메인이 종료되고
+            // 스레드 역시 종료됨을 확인할 수 있다. (for문으로 반복시켜서는 멈추지 않는다.)
+
         }
         System.out.println("메인이 종료됐습니다.");
     }

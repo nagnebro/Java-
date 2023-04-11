@@ -11,7 +11,7 @@ public class Car extends  Thread{
     }
 
     @Override
-    public void run() {
+    public void run() { // 스레드의 run 메서드를 오버라이딩.
         int i;
         for (i = 0; i<=10 ; i++){
 
@@ -30,15 +30,15 @@ public class Car extends  Thread{
 
         Monster m1 = new Monster("오크",3000);
         Monster m2 = new Monster("골램",1000);
-        Thread m3 = new Monster("김영찬",2000); // 다음과 같이 작성해도 가능하다. 왜냐하면 애초에 start메서드 자체가
-        // Thread클래스에서 상속받아서 사용하는 메서드이기 때문이다. 동작 원리를 설명하면 Thread클래스의 start()가 실행되고
-        // 그 start 메서드는 run()메서드를 실행시키는데 참조변수 타입이 자손이기 때문에 자손의 오버라이딩 된 메서드가 실행될거고
+        Thread m3 = new Monster("김영찬",2000);
+        //동작 원리를 설명하면 Thread클래스의 start()가 실행되고
+        // 그 start 메서드는 run()메서드를 실행시키는데 참조변수 타입이 자손이기 때문에 자손의 오버라이딩 된 메서드 (run 메서드)가 실행될거고
         // 그때 인스턴스변수는 당연히 자손의 것이 사용되기 떄문에 문제가 되지 않는다. 이렇게 다형성을 가질때 접근성에 문제가 생길 수 있는 경우는
-        // 조상타입의 참조변수로 자손의 오버라이딩 된 메서드에 접근할 때가 아닌, 멤버 그 자체에 접근하려고 할 떄이다.
+        // 조상타입의 참조변수로 자손의 오버라이딩 된 메서드에 접근할 때가 아닌, 자손의 인스턴스 멤버 그 자체에 접근하려고 할 떄이다.
         m3.start();
         m1.start();
         m2.start();
-
+        // 메인 메서드의 시작 후에 스레드가 실행되는 것은 당연하나 종료는 메인 메서드에서 관여할 수 없는 모습
         System.out.println("메인메서드 종료");
 
     }
