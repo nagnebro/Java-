@@ -29,11 +29,15 @@ public class Main {
         // - 접근 못하게 막는 것!
 
         Washroom wr = new Washroom(); // 이렇게 안하면 싱크로나이즈가 안된다 왜 안되는진 모르겠다.
-
+        Washroom wr2 = new Washroom();
+        Washroom wr3 = new Washroom();
+        Washroom wr4 = new Washroom();
         FamilyThread father = new FamilyThread("아빠",wr);
-        FamilyThread mother = new FamilyThread("엄마",wr);
-        FamilyThread sister = new FamilyThread("누나",wr);
-        FamilyThread me = new FamilyThread("나",wr);
+        FamilyThread mother = new FamilyThread("엄마",wr2);
+        FamilyThread sister = new FamilyThread("누나",wr3);
+        FamilyThread me = new FamilyThread("나",wr4);
+        // 현재 스레드가 접근해야 할 openroom메서드의 클래스인 WashRoom
+        // 클래스의 참조변수를 모두가 같은 매개변수로 줘야한다. 그러지 않을 경우 스레드의 싱크로나이즈가 되지 않는다.
 
         father.start();
         mother.start();

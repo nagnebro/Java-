@@ -13,6 +13,10 @@ public class synctest extends Thread {
     }
 }
 
+
+
+// 스레드는 스레드 클래스를 상속받은 서로 다른 두 클래스가 필요하다. 한개의 클래스에서는 run메서드를 오버라이딩 하고, 그 run에 실행시킬 메서드를 작성
+// 나머지 하나의 클래스에서는 그 메서드의 내용을 작성하면 된다. 이때 주의할 사항은 호출할 메서드의 클래스
 class Test2 {
     public static void main(String[] args) {
         threadmethod t = new threadmethod();
