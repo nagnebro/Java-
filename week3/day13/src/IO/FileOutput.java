@@ -17,8 +17,8 @@ public class FileOutput {
         // 문자기반일 경우 2byte 사용, 바이트기반의 경우 8byte? 이다.  >>> 한번 더 개념 정리 해야할 듯 하다. 스트림과 입출력, 파일에 관련해서
 
         try {
-            File file = new File("gugudan");
-            if (!file.exists()) { // 파일이 있는지 확인
+            File file = new File("gugudan"); // 구구단 파일을 만들어라.
+            if (!file.exists()) { // 파일이 있는지 확인 , 없으면 만들고 있으면 그냥 넘겨라.( 위에서 이미 file 선언하면서 생성한 거 아닌가?)
                 file.createNewFile(); // 새로운 파일은 있는지 묻고 없으면 생성.
             }
 

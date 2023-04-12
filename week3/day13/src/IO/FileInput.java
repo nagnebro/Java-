@@ -17,13 +17,17 @@ public class FileInput {
 
         // 문자기반일 경우 2byte 사용, 바이트기반의 경우 8byte? 이다.  >>> 한번 더 개념 정리 해야할 듯 하다. 스트림과 입출력, 파일에 관련해서
 
+
+        // Stream을 사용하면 writer reader buffer를 번갈아가며 사용하지 않고 좀 더 간단하게 파일에 접근할 수 있다.
         try {
-            File file = new File("gugudan");
+            File file = new File("gugudan"); // 구구단을 읽어 온다.
             if (!file.exists()) { // 파일이 있는지 확인
                 file.createNewFile(); // 새로운 파일은 있는지 묻고 없으면 생성.
             }
 
-            FileInputStream fos = new FileInputStream(file); // 도대체 뭐하는 코드인지 모르겠다.. 따라치기 바쁘다 그냥.
+            FileInputStream fos = new FileInputStream(file);
+            // InputStream과 OutputStream은 추상클래스이다.
+
 
             // null 나오기 전까지 읽어오기
 
@@ -31,7 +35,7 @@ public class FileInput {
             // read() 데이터를 읽을 것이 없다면 -1
 
             while((i =fos.read()) != -1) {// fos.read가 -1이라면 데이터가 없다는 뜻
-
+                // 즉 데이터가 있을 동안, 출력할 문장이 있을 동안 while 문 실행
                 System.out.print((char)i); // 숫자형태로 저장돼있을 것이다.
             }
 

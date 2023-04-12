@@ -10,7 +10,7 @@ public class FileEx01 {
         // - 파일 또는 디렉터리 (폴더) 생성, 삭제 및 이름 변경
         // 디렉터리 내용 나열 등의 기능을 제공하는 file 클래스
 
-        // File file = new File("[\디렉토리명\");
+        // File file = new File("[\디렉토리명\]");
         File file = new File("test1");
 
         //  만약 지정위치에 파일이 존재하면 false
@@ -38,7 +38,7 @@ public class FileEx01 {
             //file.mkdir();
             // 디렉터리 mkdir()
             // 새 폴더를 생성
-        } catch (IOException e) {
+        } catch (IOException e) { //  file클래스를 다루면서 발생할 수 있는 모든 예외를 처리하기 위해 IOException 선언.
             throw new RuntimeException(e);
         }
 

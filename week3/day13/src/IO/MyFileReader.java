@@ -10,13 +10,13 @@ public class MyFileReader {
 
         // 파일읽기
 
-        FileReader fr = null; // 얘는 추상클래스? 인터페이스이다. 메서드 오버라이딩 해야한다.
+        FileReader fr = null;
         String name = "./io/name";
         BufferedReader br = null; // 중간에 버퍼 생성(임시저장공간)
         try {
             fr = new FileReader(name); // 확장자명 쓰면 안되네
 
-            //  자식 클래ㅡ들이 구현해야할 read 추상 메서드
+            //  자식 클래스들이 구현해야할 read 추상 메서드
             // 바이트 하나를 읽어서 int로 반환하되, 더 이상 읽을 값이 없으면 -1을 리턴
             br = new BufferedReader(fr); // FileReader랑 버퍼랑 연결됨
             String str = br.readLine(); // 한줄씩 읽기, 버퍼에 파일리더의 참조변수가 있고 그걸 통해 한줄씩 읽는 듯하다.

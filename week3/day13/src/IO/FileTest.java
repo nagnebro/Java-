@@ -53,7 +53,7 @@ class FileTest2{
             FileReader fr = new FileReader("./for");
             BufferedReader br = new BufferedReader(fr);
 
-            for (int i = 1 ; i <=100; i++) { // while 돌려도 null되면 알아서 꺼지나?
+            for (int i = 1 ; i <=200; i++) { // while 돌려도 null되면 알아서 꺼지나? -> 안됨
                 String str = br.readLine();
                 System.out.println(str);
             }
@@ -95,7 +95,8 @@ class FileTest3{
             int length = input.split(",").length;
             name = new String[length]; // 배열로 받게되면 길이를 생성할떄 좀 거슬리는 부분이 있다. 물론 미리 넉넉하게 잡아도 되지만 사용자가
             //입력을 어떻게 줄지 모르기 때문에 최대한 안전하게 입력값을 확인한 후에 length만큼 배열을 생성한다.
-            //하지만 이렇게되면 좀 껄끄럽기 때문에 차라리 name과 age를 ArrayList를 사용하면 길이를 지정할 필요없이 set()메서드만 사용하면 된다.
+            //하지만 이렇게되면 좀 껄끄럽기 때문에 차라리 name과 age를 저장할 공간으로 ArrayList를 사용하면 길이를 지정할 필요없이 set()메서드만 사용하면 된다.
+            //하긴 이렇게하나 저렇게하나 도찐개찐인 것 같기는 하다. 이후에 삭제되는 것만 아니라면 배열써도 크게 문제는 없겠다.
             age = new int[length]; // 입력값의 길이, 즉 학생수만큼 입력값을 받는다.
             student_list = new String[length];
             System.out.println("학생 정보 읽어오기를 시작합니다");

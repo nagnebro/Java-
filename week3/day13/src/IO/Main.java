@@ -24,7 +24,8 @@ public class Main {
          */
         // 문자 (텍스트 파일)
         Scanner sc = new Scanner(System.in);
-        FileWriter fw = null; // try 문 밖에 써놓지 않으면 try의 바깥 블럭에선 실행될 수 없다. 1. 파일을 생성한다.
+        FileWriter fw = null; // try 문 밖에 써놓지 않으면 try의 바깥 블럭에선 실행될 수 없다. FileWriter와 FileReader
+        // 1. 파일을 생성한다.
         String io = "./io/"; // 절대경로를 저장하는 문자열.
         String fileName = sc.next();
         try {
