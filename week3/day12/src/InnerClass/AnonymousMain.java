@@ -13,7 +13,7 @@ public class AnonymousMain extends JFrame {
         setBounds(0,0,400,300);
         JButton btn = new JButton("눌렀니");
 
-        btn.addActionListener(new ActionListener() {
+        btn.addActionListener(new ActionListener() { // 익명클래스는 보통 이벤트 처리할떄 많이 사용한다고 한다.
             @Override
             public void actionPerformed(ActionEvent e) {
                 btn.setText("놀랐네~"); // 얘를 정확히 왜쓰는지 모르겠다. 강사님 말씀으로는 굳이 계속 액션리스너의 입력을 받을 필요가 없다?? 라고

@@ -16,8 +16,14 @@ public class Main {
 //        실행 중 발생할 수 있는 잠재적인 에러까지 잡을 순 없다.
 //        그래서 컴파일은 문제없이 완료되어 프로그램 실행이되고 실행도중 의도치않은 동작에 대처하지못해 에러가 발생할 수 있다.
 //
+
 //        에러(Error): 메모리 부족(OutOfMemoryError)이나 스택오버플로우(StackOverflowError)와 같이 일단 발생하면 복구할 수 없는 심각한 오류
 //        예외(exception): 인자값 Null 에러NPE(NullPointException)같은 발생하더라도 수습이 가능한 덜 심각한 오류.
+
+
+//        에러와 예외의 정확한 차이는 무엇인가 ? 위의 컴파일에러와 런타임에러가 있다면 우리가 프로그램 실행전 실행 후 발생하는 것은 모두 에러라는 말인데
+//        위의 문맥을 봤을때는 런타임 에러, 컴파일 에러 모두 예외를 뜻하는 듯하다. 객체와 인스턴스처럼 조금 의미가 중복적으로 사용되는 것 같다.
+
 
 //        Logical Error: 소스 코드 컴파일도 정상적으로 되고 런타임상 에러가 발생하는 것도아닌 개발자의 의도와는 다르게동작하는 에러를 뜻한다.
 //        버튼을 클릭하면 팝업이 뜨게 만들었으나 팝업이아닌 새로운 페이지가 뜨거나 아무동작을 안하거나 하는 것처럼 시스템상 프로그램이 멈추거나 하지는 않지만,
@@ -35,15 +41,15 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         try {
             System.out.println("정수1입력");
-            int num = sc.nextInt();
+            int num = sc.nextInt(); // 발생할 수 있는 에러1, nextInt()메서드에 String이 들어올 수도 있음. 아래 스캐너도 마찬가지.
 
             System.out.println("정수2입력");
             int num2 = sc.nextInt();
 
             System.out.println(num / num2); // 두번쨰 숫자를 0으로 입력하면 0으로 나눌 수 없기 떄문에 에러발생.
 
-            int[] arr = new int[2];
-            System.out.println(arr[3]);
+            int[] arr = new int[2]; // 발생할 수 있는 에러2, 인덱스 번호가 벗어날 수 있음. 아래 arr[3]도 마찬가지.
+            System.out.println(arr[3]); //
         }// 예외가 발생할 수 있는 부분의 전체를 try블럭으로 감싸준다.
         catch(Exception e){// Exception 클래스를 이용해서 업 캐스팅 해준다, 그러면 자손들의 예외가 발생해도 예가 실행된다.
             System.out.println(e.getMessage());

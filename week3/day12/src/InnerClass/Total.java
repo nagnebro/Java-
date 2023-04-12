@@ -20,9 +20,9 @@ class PocketBall{
         int level = 10;
 
         public static void getPoketMember(){
-            // 외부 클래스 인스턴스 멤버 접근 불가능하다.
+            // 외부 클래스 인스턴스 멤버 접근 불가능하다. 정확히 말하면 외부의 외부로는 접근이 불가능하다..?
             // System.out.println(size); 불가능하다.
-
+            System.out.println(name); // 이것은 가능하다.
             System.out.println(price);
             // System.out.println(level);
         }

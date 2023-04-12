@@ -17,8 +17,6 @@ class AccountException extends Exception {
     }
 }
 
-
-
 class Account{
 
     int no;
@@ -34,7 +32,6 @@ class Account{
         this.pw = pw;
         System.out.println(this.money);
     }
-
 
     Account(){}
 
@@ -54,8 +51,6 @@ class Account{
         }else{
             throw new AccountException("잔액이 부족합니다");
         }
-
-
     }
     void check() throws AccountException{
         System.out.println("비밀번호를 입력하세요");
@@ -86,17 +81,9 @@ class Account{
                 return;
             }
         }
-
-
-
     }
 
 }
-
-
-
-
-
 class AccountMain {
 //    Class명 : Account
 //    속성 : no(계좌), name(예금주), private money(잔액) 게터세터 사용?

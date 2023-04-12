@@ -16,7 +16,7 @@ class Student{
     void score(){ // 평균을 계산하는 메서드.
 
         int total = 3;
-        class Avg{
+        class Avg{ // 메서드 내에 선언된 로칼 클래스
             int sum = math+eng+kor; // 외부의 변수에 접근 가능
 
             void grade(){

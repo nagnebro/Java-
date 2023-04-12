@@ -25,6 +25,8 @@ public class Static_Inner2 {
         Outer.Nested1 nst1 = new Outer.Nested1();
         // 내부클래스가 static이 아니면 Outer의 객체를 먼저 생성 후 그 객체로 다시 Nested1 클래스에 접근해야할 것이다.
         // 쉽게 생각하면 내부클래스는 그냥 메서드라 생각해라. static 붙어있으면 static 메서드고 안붙어있으면 인스턴스 메서드이다.
+        // 우리가 스태틱 메서드는 그냥 클래스명.메서드명으로 접근이 가능한데 인스턴스메서드는 클래스의 객체를 생성한 후 객체에서 메서드로
+        // 접근해야하지 않는가. 똑같은 것이다.
         Outer.Nested2 nst2 = new Outer.Nested2();
 
         nst1.add(5);

@@ -51,9 +51,7 @@ class KakaoBank{
                     acclist.set(i + 1, tmp);
                 }
             }
-
         }
-
         for (int i = 0; i < acclist.size(); i++) {
             Account tmp = acclist.get(i);
             System.out.printf("%d번째 고객의 이름은 %s, 계좌번호는 %d, 잔액은 %d입니다 \n", i + 1, tmp.username, tmp.accnum, tmp.money);
@@ -78,7 +76,7 @@ public class KakaoMain {
         Scanner sc = new Scanner(System.in);
         KakaoBank k = new KakaoBank();
         while(true){
-            System.out.println("메뉴를 입력하세요\n 1. 고객계좌등록\n2. 고객 조회\n3. 고객정렬");
+            System.out.println("메뉴를 입력하세요\n1. 고객계좌등록\n2. 고객 조회\n3. 고객정렬");
             int input = sc.nextInt();
             if(input == 1){
                 k.insert();
