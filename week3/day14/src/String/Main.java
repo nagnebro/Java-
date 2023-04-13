@@ -53,3 +53,11 @@ public class Main {
         System.out.println(name3);
     }
 }
+
+
+class Test{
+    public static void main(String[] args) {
+        String [] list = {""};
+        System.out.println(list.length);
+    }
+}

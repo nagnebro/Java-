@@ -207,7 +207,7 @@ public class ArrayTest {
 
 
         for (int i = 0 ; i<list.length; i++) {
-            ran = r.nextInt(10) + 1;
+            ran = r.nextInt(45) + 1;
             for (int j = 0; j <= i; j++) {
                 if (ran == list[j]) {
                     count =1;
@@ -233,24 +233,96 @@ public class ArrayTest {
         int num = 0;
         int ran = 0;
         int count = 0;
-        for (int i = 0; i<list.length; i++){
-            for(int j =0 ; j<=i;j++){
-                ran = r.nextInt(45)+1;
-                if(ran == list[j]){
-                    count = 1;
+        for (int i = 0 ; i<list.length; i++) {
+            ran = r.nextInt(45) + 1;
+            for (int j = 0; j <= i; j++) {
+                if (ran == list[j]) {
+                    count =1;
                     break;
                 }
             }
             if(count ==1){
-                i -=1;
-                count=0;
+                i-=1;
+                count = 0;
                 continue;
             }
-            list[i]= ran;
+            list[i]=ran;
         }
+
         System.out.println(Arrays.toString(list));
     }
+
     public static void practice15(){
+
+        System.out.println("문자열을 입력하세요");
+        String input = sc.nextLine();
+
+        String [] input_list = input.split("");
+        String [] answer_list = new String[input.length()];
+        int count = 0;
+        int check = 0;
+
+        for (int i = 0; i < input_list.length; i++){
+            for(int j = 0; j<=i ; j++){
+                if(input_list[i].equals(answer_list[j])){
+                    check = 1;
+                    count++;
+                    break;
+                }
+
+            }
+            if(check ==1){
+
+                check= 0;
+                continue;
+            }
+            answer_list[i-count] = input_list[i];
+
+
+        }
+        System.out.println(Arrays.toString(answer_list));
+        System.out.println("문자개수 : "+((answer_list.length)-count));
+
+    }
+
+    public static void practice16(){
+
+        System.out.println("배열 길이 입력하세요");
+        int input = sc.nextInt();
+        String [] list = new String[input];
+        String [] list2 ;
+        int count = 0;
+
+
+
+        while(true){
+            while(count<list.length){ // 처음에는 사용자가 입력한 값. 그다음부터는 밑에서 입력한값으로 다시 돌려줌.
+                System.out.printf("%d번쨰 문자열 :",count +1);
+                String book = sc.next();
+                list[count] = book;
+                count++;
+            }
+            System.out.println("값을 더 입력하시겠습니까?");
+            String input2 = sc.next();
+            if(input2.equals("n")){
+                System.out.println(Arrays.toString(list));
+                break;
+            }
+            else if(input2.equals("y")){
+                System.out.print("더입력하고싶은 개수");
+                input = sc.nextInt();
+                list2 = list.clone();
+                list = new String[list.length+input]; // <<에러발생가능성.
+                for(int i = 0; i < list2.length ; i++){
+                    list[i] = list2[i]; // 복제된값을 다시 기존 배열로 넘겨줌. 추가 입력한만큼 길이가 늘어나ㅇ있는 상태.
+                }
+
+
+                // list2 = new String[list.length+input];
+            }
+
+
+        }
 
     }
     public static void main(String[] args) {
@@ -266,7 +338,7 @@ public class ArrayTest {
 //        practice11();
 //        practice12();
 //        practice13();
-        practice14();
+//        practice14();
 //        practice15();
 //        practice16();
     }
