@@ -23,7 +23,7 @@ public class FileInput {
             File file = new File("gugudan"); // 구구단을 읽어 온다.
             if (!file.exists()) { // 파일이 있는지 확인
                 file.createNewFile(); // 새로운 파일은 있는지 묻고 없으면 생성.
-            }
+            } // 아래에서 inputstream으로 파일을 읽어와야하기 떄문.
 
             FileInputStream fos = new FileInputStream(file);
             // InputStream과 OutputStream은 추상클래스이다.
@@ -36,7 +36,10 @@ public class FileInput {
 
             while((i =fos.read()) != -1) {// fos.read가 -1이라면 데이터가 없다는 뜻
                 // 즉 데이터가 있을 동안, 출력할 문장이 있을 동안 while 문 실행
+                // fos.read는 한글자씩 아스키코드값(정수형)으로 반환하는 형태인 것 같다.
+                // br.readLine과 마찬가지로 처음부터 읽고나면 다음으로 넘어가는 식이며 다 읽엇다면 null대신 -1을 반환
                 System.out.print((char)i); // 숫자형태로 저장돼있을 것이다.
+                // char 형변환을 안해줄 시 아스키코드 값에 해당하는 숫자가 나오기 떄문에 형변환 해줘야한다.
             }
 
             fos.close();

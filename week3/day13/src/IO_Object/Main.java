@@ -7,11 +7,12 @@ class Person {
         this.name = name;
     }
 
+    Person(){}
     @Override // Object 클래스에서 오버라이딩.
     public boolean equals(Object obj) { // 내가 저번에 자손 인스턴스로 조상 인스턴스와 비교한 것과 비슷한 구조. 매개변수로
         // 실행한 쪽의 메서드의 this를 넘겨주고 매개변수로 비교하려는 인스턴스의 주소를 넘겨주면 서로 비교가 가능하다.
 
-        // 만약 현 객체와 매개변수 객체가 같을 경우 true이면
+        // 만약 현 객체와 매개변수 객체가 같을 경우 true이면 비교값의 결과로 참을 리턴한다.
         if (obj == this) {
             return true;
         }
@@ -21,14 +22,16 @@ class Person {
         // false 그대로 집어넣으면 if문이 실행되지 않는다.
         // not 거짓을 참으로 변경했다.
 
-        if (!(obj instanceof Person)) {
-            Person person = (Person) obj;
+        if (!(obj instanceof Person)) { // 이 조건을 풀어서 말하자면 obj의 인스턴스가 Person보다 상위의 클래스인 경우를 말하는것이다.
+            Person person = (Person) obj; // 이 코드는 에러가 발생할 수 밖에 없는 것 같은데.. 무슨 의도인지 모르겠다. 그러니까
+            // 애초에 Person보다 조상이면 애초에 이 메서드에 들어올 수 없고 다형성을 가진 Person의 조상 타입의 참조변수를 가진 Person인스턴스가
+            //왔다고 해도 어차피 instance of 에 의해 저 조건문은 실행되지 않는다.
         }
         Person person = new Person("hi");
-        if (person.name == this.name){
+
+        if (person.name == this.name){ // 인스턴스 값이 같은지 비교..?
             System.out.println("같다");
             return true;
-
         }else{
             return false;
         }
@@ -68,6 +71,12 @@ public class Main {
         String s3 = new String("hello");
         System.out.println(s1==s2);
         System.out.println(s3==s2);
+        Object obj1 = new Object();
+        Person p =new Person();
+        PersonTest p2 = new PersonTest();
+        int x =20;
+        int y= 10;
+        System.out.println(++x+y--);
 
     }
 }

@@ -12,7 +12,7 @@ public class MyFileReader {
 
         FileReader fr = null;
         String name = "./io/name";
-        BufferedReader br = null; // 중간에 버퍼 생성(임시저장공간)
+        BufferedReader br = null; // 중간에 버퍼 생성(임시저장공간)  -> 파일을 쓸때는 상관없지만 파일을 읽어올때는 버퍼가 있어야하는건가
         try {
             fr = new FileReader(name); // 확장자명 쓰면 안되네
 
