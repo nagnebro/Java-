@@ -14,7 +14,7 @@ public class StringBufferEx {
         // - 임시 저장 공간(독립적인 공간)
         // 문자열을 바로 추가할 수가 있고 공간 낭비도 없고 연산(추가 및 삭제)속도가 매우 빠르다. -> 그럼 수정후에도 같은 주소를 가지나? 그냥 연산만 빠른건가
 
-        StringBuffer sb = new StringBuffer();
+        StringBuffer sb = new StringBuffer(); // java.lang에 클래스 존재
         System.out.println(sb);
         sb.append("hello"); // StringBuffer와 StringBuilder는 append를 사용함으로서 길이가 16인 빈 공간에 추가하고자는 문자열을
         // 생성한 후 sb라는 문자열공간에 저장시켜준다. 이때 String클래스로 문자열끼리 연산하는 것보다 효율이 좋다는 것인데 그 이유는
@@ -24,28 +24,27 @@ public class StringBufferEx {
         sb.append("java");
         sb.append("isit");
         sb.append("fun");
+        // 버퍼에 지속적으로 문자열을 추가해준다. 이 때 기본값인 16보다 길이가 길어지게 될떄마다 길이를 2배로 늘려주는 형식.
 
         StringBuffer sb2 = new StringBuffer();
         sb2.append("hi");
-        System.out.println("sb2의 해쉬코드 : "+sb.hashCode()); // 서로 다른 주소값을 가지게 된다.
+        System.out.println("sb2의 해쉬코드 : "+sb.hashCode()); // 서로 다른 해쉬코드값을 가지게 된다.
+        System.out.println(sb2);
         System.out.println("hi의 해쉬코드"+"hi".hashCode());
-        System.out.println(sb2.hashCode());
+        System.out.println(sb2.hashCode()); //
         //sb1과 sb2과 있을 떄 각각ㄱ의 해쉬코드는 hashcode를 생성하는 순서에 따라 달라진다. 즉 append를 하고 나서도 값을 가지고 있는
         // 주소를 가지고 있지 않다가 출력될 떄 주소값을 할당해주는 건가?
 
+        // StringBuffer 타입의 참조변수는 String 타입인 듯 하다. 다만 일반 문자열 타입과는 조금 다른 공간에 있는것 같다.
 
-        //================================좀더 정리하자 sb의 타입이 무엇인지. char 배열인가?================================================
 
 
         System.out.println(sb);
-        System.out.println(sb.hashCode());
+        System.out.println("sb의 해쉬코드 : " + sb.hashCode());
         String ex = "helloworldjavaisitfun";// append를 통해 추가된 문자열을 저장하는 공간 sb의 주소와 그냥 문자열 값을 비교해보면
-        System.out.println(ex.hashCode());// 결국 상수 문자열 값의 주소를 같이 공유하고 있다는 것을 알 수 있다.
+        System.out.println("ex : "+ ex.hashCode());// 결국 상수 문자열 값의 주소를 같이 공유하고 있다는 것을 알 수 있다.
 
-        String result = sb.toString(); // sb라는 스트링버퍼 타입의 참조변수에 내가 추가한 문자열들이 버퍼에 저장된 상태이다
-        // 그 버퍼에 저장된 값을 문자열로 갖고 오기 위해서는 toString()으로 갖고와야함.
-        System.out.println(result.hashCode());
-        System.out.println(result);
+
 
 
 
@@ -98,6 +97,7 @@ class StringEx{
         sb.showstr();
         sb.showstrbu();
 
-        sb.showstrbu2();
+        //sb.showstrbu2();
     }
 }
+

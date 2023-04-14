@@ -228,29 +228,31 @@ public class ArrayTest {
 
 
     public static void practice14(){
-        int [] list = new int[6];
+        int [] list = new int[10];
 
         int num = 0;
         int ran = 0;
         int count = 0;
         for (int i = 0 ; i<list.length; i++) {
-            ran = r.nextInt(45) + 1;
+            ran = r.nextInt(10) + 1;
             for (int j = 0; j <= i; j++) {
+                if(count==1){
+                    j=0;
+                    count=0;
+                }
                 if (ran == list[j]) {
-                    count =1;
-                    break;
+                    count=1 ;// 같으면 안쪽 for문의 반복에 사용되는 j값을 0으로 만들면서 무한반복.
+                    // continue; else if 문이라 의미없고.
+                    ran = r.nextInt(10) + 1;
+                } else if (j == i) { // 마지막 요소를 검사하고 난 후, 즉 i = j일떄 모든 요소가 다르다는 조건이
+                    // 성립하는 상황이므로 그 떄 i인덱스에 난수를 저장시켜준다.
                 }
             }
-            if(count ==1){
-                i-=1;
-                count = 0;
-                continue;
-            }
-            list[i]=ran;
         }
-
         System.out.println(Arrays.toString(list));
     }
+
+
 
     public static void practice15(){
 
@@ -338,7 +340,7 @@ public class ArrayTest {
 //        practice11();
 //        practice12();
 //        practice13();
-//        practice14();
+        practice14();
 //        practice15();
 //        practice16();
     }

@@ -22,8 +22,8 @@ public class Main {
             out.writeBytes("안녕안녕안녕...");
             out.close();
 
-            FileInputStream fis = new FileInputStream("data.bin");
-            in = new DataInputStream(fis);
+//            FileInputStream fis = new FileInputStream("data.bin");
+//            in = new DataInputStream(fis);
 
             int aint = in.readInt();
             double adouble = in.readDouble();

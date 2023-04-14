@@ -15,8 +15,8 @@ public class CloneMain {
 
         try {
             User copy = (User)user1.clone(); // clone의 반환타입은 object이기 떄문에 형변환을 해줘야 한다.
-            System.out.println(copy.hashCode());
-            System.out.println(user1.hashCode());
+            System.out.println(copy.hashCode()); // 복사된 인스턴스와 기존의 인스턴스 해쉬코드가 다름으로써
+            System.out.println(user1.hashCode()); // 서로 독립된 객체임을 알 수 있음.
 
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
@@ -38,7 +38,7 @@ public class CloneMain {
     //? 근데 protected면 조상에서 접근이 되고 object상속돼있으니 사용가능한 거 아닌가?
 
     // -> 아니다. 내가 지금 실행시키려는 클래스는 Main이고 User클래스에 clone()메서드를 오버라이딩한 상황이다
-    // 유저와 메인 클래스는 둘다 오브젝트로 클래스에게 상속받는다. 이 때 메인클래스에서 생성한 유저클래스의 인스턴스로
+    // 유저와 메인 클래스는 둘다 오브젝트로 클래스에게 상속받는다. 이 때 메인클래스에서 생성한 유저클래스의 참조변수로
     // 제어자가 protected인 메서드에 접근할 수 있을까? 접근하지 못한다. 거기서 오버라이딩 했기 때문에 바깥의 클래스에서 참조변수로 접근못한다.
     // private쓸떄는 오직 본인의 클래스 내여야만 한다는 것과 같은 개념이다 따라서 아래와 같이 작성은 가능하다.
     //CloneMain m = new CloneMain();

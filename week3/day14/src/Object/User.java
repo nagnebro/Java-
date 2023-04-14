@@ -28,7 +28,7 @@ public class User implements Cloneable{
     User(String a, String b){
 
     }
-    @Override
+    @Override // cloneMain 클래스에서 사용하기 위해 오버라이딩.
     public Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
