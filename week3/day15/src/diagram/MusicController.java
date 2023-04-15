@@ -28,8 +28,11 @@ public class MusicController {
     }
 
     Music searchMusic(String title){
+
+
+
         for(int i = 0 ; i<list.size(); i++){
-            if(list.get(i).title.equals(title)){
+            if(list.get(i).equals(title)){
                 return list.get(i);
             }
         }

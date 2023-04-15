@@ -31,6 +31,8 @@ public class Run {
         int num1 = (int)ch;
         System.out.println((int)a.charAt(0));
         System.out.println(b.charAt(0));
+        String abc = "abcl";
+        //Music m2 = (Music)abc;
 
     }
 }

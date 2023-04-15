@@ -34,7 +34,7 @@ class DecToBinEx {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("십진수 입력 : ");
-        int val = 18;
+        int val = sc.nextInt();
         val = decToBin(val);
         System.out.println("이진수 : " + val);
 //        val = binToDec(val);
@@ -58,15 +58,19 @@ class DecToBinEx {
         for(int j = 0 ; j <length; j++){
             answer[j] = list[j]; // 여기서 i는 아까 값의 개수를 셀떄 추가했었다.
         }
-
         for(int k = 0; k<answer.length; k++){
             //3항 연산자? 조건연산자
-            if(answer[0]==1){result+=1;}
-
-            return result;
-
+            if(answer[k]==1){ //리스트의 저장된 값이 1이면 그 자리수만큼 10의제곱해서 더해줘야한다.
+                int ten = 1;
+                for(int a = 0 ;a <k ; a++){
+                    ten *= 10;
+                }
+                result += ten;
+            }
         }
-        return 1;
+        System.out.println(Arrays.toString(answer));
+        return result;
+
     }
 
     static int binToDec(int bin) { // 2진수를 10진수로 바꾸는 메서드.
