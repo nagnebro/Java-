@@ -1,5 +1,6 @@
 package Generics;
 
+import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -72,19 +73,24 @@ public class MemberMenu {
     }
 
     void joinMembership() {
+        while(true) {
+            System.out.print("id > ");
+            String input1 = sc.next();
+            System.out.print("pw > ");
+            String input2 = sc.next();
+            System.out.print("이름 > ");
+            String input3 = sc.next();
 
-        System.out.print("id > ");
-        String input1 = sc.next();
-        System.out.print("pw > ");
-        String input2= sc.next();
+            Member temp = new Member(input1, input2, input3);
+            boolean res = mc.joinMembership(input1, temp); // 아이디로만 중복을 검사한다.
 
-        Member temp = new Member(input1,input2);
-        boolean res = mc.joinMembership(input1,temp);
+            if (res) {
+                System.out.println("중복된 아이디입니다 다시 입력하세요");
 
-        if(res){
-            System.out.println("가입완료");
-        }else if(res){
-            System.out.println("가입 안");
+            } else {
+                System.out.println("가입완료");
+                return;
+            }
         }
     }
 
@@ -136,9 +142,9 @@ public class MemberMenu {
 
             String result = mc.login(input1, input2); // 나의 id
             if (result != null) {
-                System.out.println("새 이름을 입력하세요ㅅ");
+                System.out.println("새 이름을 입력하세요");
                 String newName = sc.next();
-                mc.changeName(result,newName); // 나의 아이디와 새로운 ㅇ이름? 아이디를 입다
+                mc.changeName(input1,newName); // 나의 아이디와 새로운 이름? 아이디를 입다
                 return;
             } else {
                 System.out.println("이름 변경에 실패했습니다. 다시 입력하세요");
@@ -149,6 +155,11 @@ public class MemberMenu {
     }
 
     void sameName() {
+
+        System.out.print("검색할 이름을 입력하세요 : ");
+        String input = sc.next();
+        mc.sameName(input);
+
 
     }
 }
