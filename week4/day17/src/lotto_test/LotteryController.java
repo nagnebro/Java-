@@ -1,6 +1,5 @@
-package lotto;
+package lotto_test;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class LotteryController {
@@ -10,7 +9,7 @@ public class LotteryController {
 
     // 해쉬에는 실제로 들어가는 값이 lottery 클래스의 이름과 폰번호를 합친 문자열이다. 그럼 이 문자열을 포함하고 있으면 아노딘다.
     boolean insertObject(Lottery l) {
-        // 포문으로 다돌리면서 equals...?
+        // 얘는 해시셋
         for (Lottery lotto : lottery) { // for each문은 컬렉션 없으면 타입을 미리 지정해줄 수 없어서 에러발생함.
             if (lotto.equals(l)) { //로터리의 인스턴스인 로또와 매개변수로 들어온 l간의 name과 phone이 같을때 가입제한,
                 // 혹은 다른 메서드에서 사용자 조회 용도로 사용가능
@@ -47,7 +46,6 @@ public class LotteryController {
             // 인덱스 랜덤으로 생성해가지로 순서 썩고 win 해시에 담으라는 것.
             temp.add(l); // 어레이리스트 temp에 저장.
         }
-
         for (; 4 > win.size(); ) { // 추첨자수가 4명미만일떄는 돌리면 안된다. 해쉬에는 중복된 값이 안들어가서 길이가 3인 어레이리스트의 요소를 추가한다해도
             // win의 사이즈는 증가되지 않는다.
             int ran2 = (int)(Math.random()*temp.size()); // 0~temp의 길이-1만큼의 값을 저장
@@ -72,7 +70,9 @@ public class LotteryController {
     TreeSet sortedWinObject() { // toString 써서 그렇지 실제로 해시에는 참조변수의 주소가 저장돼있기 때문에 오름차순으로 정렬될 수가 없는 것.그래서 이 메서드가 필요함
 
         //Iterator<Lottery> iter = win.iterator();//hasnext랑 next쓸거면 다음과 같이 iterator사용.
-        TreeSet<String> ts = new TreeSet<>(); // treeset은 추가만 해도 그냥 오름차순 되는듯? hashset과 다른점은?
+        TreeSet<String> ts = new TreeSet<>(); // treeset은 추가만 해도 그냥 오름차순 되는듯? hashset과 다른점은? -> 그게 아니고 hashset도 단순히 기본자료형일때는 값의 오름차순이 적용된다
+        // 하지만 앞의 예제들에서 우리는 set이나 map에 객체를 넣어서 순서가 섞였던 거고 지금은 내가 단순히 문자열로 treeset을 반환하니 오름차순이 되는 것.
+        // 단 나는 이름이 같을경우 휴대폰 번호까지 비교 후 오름차순을 적용하는 것은 하지 않았음. 그리고 이 코드의 문제점은 중복된 이름이 있을 경우 1명만 추가된다는 것이다.
         for (Lottery l : win) {
             // 동명이인에 대한 오름차순은 우선 나중에 구현해보자.
             ts.add(l.getName());

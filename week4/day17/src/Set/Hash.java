@@ -1,6 +1,8 @@
 package Set;
 
-import java.util.LinkedList;
+import java.util.*;
+
+// 이 코드는 지금봐도 이해 못한다.
 
 class HashTable{ // 해시의 구조를 보여주는 알고리즘.
     class Node{
@@ -81,7 +83,7 @@ class HashTable{ // 해시의 구조를 보여주는 알고리즘.
         return node == null? "Not found" : node.value();
     }
 }
-//========== 자료구조에 대한 공부 필요 hash ,set ,map , 등등. ================
+//========== 자료구조에 대한 공부 필요 List ,set ,map , 등등. ================
 public class Hash {
     // isEmpty() : 데이터가 있는지 없는지 확인다
     // contains() : 지정된 key가 있는지 검색한다.
@@ -104,7 +106,7 @@ public class Hash {
     // 충돌 < 인덱스 방번호가 같거나, hashcode값이 같을 경우 >
 }
 
-class HashTest{
+class HashTest {
     public static void main(String[] args) {
 
         // 문자열의 길이를 가지고 인덱스로 사용하게 되면

@@ -1,7 +1,6 @@
-package lotto;
+package lotto_test;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Scanner;
 import java.util.TreeSet;
 

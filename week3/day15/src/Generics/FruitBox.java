@@ -3,7 +3,7 @@ package Generics;
 
 
 public class FruitBox<T,U>{
-    public <T,U> void printBox(T x, U y){
+    public <T,U> void printBox(T x, U y){ // -> 다음과 같이 제네릭 타입을 여러가지로 지정할 수도 있다.
 
         System.out.println(x.getClass());
         System.out.println(y.getClass());

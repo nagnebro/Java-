@@ -1,4 +1,4 @@
-package lotto;
+package lotto_test;
 
 public class Lottery {
 

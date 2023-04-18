@@ -73,6 +73,50 @@ class DecToBinEx {
 
     }
 
+    static int bintoDec(int bin){
+
+        //이진수가 들어오면 그 자릿수에 해당하는 만큼 2의 제곱을 곱해야한다.거꾸로 되니 length-i 만큼 포문 반복시켜서 더하기.
+        // 반복문을 이용해 처리하는 방법. 일단 숫자길이를 알아야 지수를 체크한다.
+        // 숫자길이를 확인하는 방법  -> 10으로 나누기?
+        // 쉬운 방법 보다 되는방법 먼저 찾기
+        int length = 0; //bin의 길이를 확인하기 위한 변수
+        int count = 0; //
+        int tmp = bin; // bin의 값은 계속 유지돼야 하기 때문에 임시값을 사용.
+        int result = 0;
+        int comp = 1;
+        int two = 2;
+        int j = 0;
+        int [] list = null;
+        while(tmp!=0) { // 자리수 체크 , 현재 1의자리는 체크안되는 경ㅇ우.
+            length++;
+            tmp /= 10;
+        }
+        list = new int[length]; // 길이 구한 후 길이만큼 배열 생성
+
+        for( int i = 0; i<length; i++){ // i는 들어온 숫자의 길이만큼 반복됨. 처음부터 가장 앞자리 수를 구함.
+
+            while(j<length){ // 2진수의 첫쨰자리수부터 10진수로 저장하기 위함
+                two *= 2; // 10의 제곱수를 구했을떄 더해줘야할 10진수의 수
+                comp *= 10; // 입력값 2잔슈룰 나누기 위한 10의 제곱수
+                j++;
+            }
+            if(bin/comp == 1){
+                result += two;
+                two = 2;
+                comp = 0;
+                j=0;
+            }
+        }
+
+
+
+
+
+
+        return 1;
+
+    }
+
     static int binToDec(int bin) { // 2진수를 10진수로 바꾸는 메서드.
         return 1;
     }
