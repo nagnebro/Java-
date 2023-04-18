@@ -69,7 +69,7 @@ public class MemberController {
         }
 
         TreeMap sameName(String name){
-            TreeMap<String, Member> sort_list = new TreeMap<>();
+            TreeMap<String, Member> sort_list = new TreeMap<>드();
             for ( Member m : map.values()){// 해쉬맵의 value값들을 돌려준다.
 
                 if(m.getName().equals(name)){

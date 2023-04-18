@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class Main {
     public static void main(String[] args) {
 
-        // map
+        // map -- 비선형구조이다
         // 키(key) 값(value) 쌍으로 구성된 객체를 저장하는 자료구조 -> 파이썬의 딕셔너리.
         // 연락처(이름, 전화번호) 의 형태
         // 기본 타입이기 떄문에 제네릭타입에서 사용할 수 없다. >> 따라서 래퍼클래스와 같이 사용해야 된다
