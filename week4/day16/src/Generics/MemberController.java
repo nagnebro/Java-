@@ -2,6 +2,7 @@ package Generics;
 
 import java.sql.SQLOutput;
 import java.util.HashMap;
+import java.util.List;
 import java.util.TreeMap;
 
 public class MemberController {
@@ -68,8 +69,9 @@ public class MemberController {
             System.out.println(map);
         }
 
+
         TreeMap sameName(String name){
-            TreeMap<String, Member> sort_list = new TreeMap<>드();
+            TreeMap<String, Member> sort_list = new TreeMap<>();
             for ( Member m : map.values()){// 해쉬맵의 value값들을 돌려준다.
 
                 if(m.getName().equals(name)){

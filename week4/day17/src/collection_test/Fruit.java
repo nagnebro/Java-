@@ -21,7 +21,7 @@ public class Fruit extends Farm{
 
     @Override
     public String toString() {
-        return super.toString();
+        return String.format("%s : %s",this.getKind(),this.name);
     }
 
     @Override
@@ -31,7 +31,12 @@ public class Fruit extends Farm{
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if(!(obj instanceof Fruit)){
+            return false;
+        }
+        Fruit f = (Fruit)obj;
+
+        return this.name.equals(f.getName()) ? true : false;
     }
 
 }

@@ -12,12 +12,16 @@ public class Vegetable extends Farm{
 
     @Override
     public String toString() {
-        return super.toString();
+        return String.format("%s : %s",this.getKind(),this.name);
     }
-
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+
+        if(!(obj instanceof Vegetable)){
+            return false;
+        }
+        Vegetable f = (Vegetable) obj;
+        return this.name.equals(f.getName()) ? true : false;
     }
 
     @Override

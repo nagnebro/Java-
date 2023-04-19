@@ -29,6 +29,10 @@ public class Farm {
 
     @Override
     public boolean equals(Object obj) {
+        if(!(obj instanceof Farm)){
+            return false;
+        }
+
         return super.equals(obj);
     }
 }

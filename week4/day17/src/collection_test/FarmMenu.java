@@ -148,10 +148,25 @@ public class FarmMenu {
         }
     }
 
-    void printFarm(){
+    void printFarm(){ //실습 구현화면에서는 농산물 순서가 추가 순서로 나오는데 hashmap에 저장하면 원래 맘대로잖아 순서
         HashMap<Farm, Integer> hs = fc.printFarm();
+        //for문으로 해시맵 돌리면서 Instacneof해서 요소를 그떄그떄 캐스팅해줘서 출력해야하나?.. 너무귀찮은
         for(Farm f : hs.keySet()){ // ㅌ타입만 Farm이지 실제 인스턴스는 Fruit나야채나 그런것들임. 그러므로 이름에도 접근가능.
-            System.out.println(f.getKind());// farm에 접근해서 종류랑 이름? 이름은 어떻게 접그근하지?
+            if(f instanceof Fruit){
+                Fruit fr = (Fruit)f;
+                System.out.printf(f+"( %d개 )",hs.get(fr));
+                System.out.println();
+            }else if(f instanceof Nut){
+                Nut fr = (Nut)f;
+                System.out.printf(f+"(%d)",hs.get(fr));
+                System.out.println();
+            }
+            if(f instanceof Vegetable){
+                Vegetable fr = (Vegetable) f;
+                System.out.printf(f+"(%d)",hs.get(fr));
+                System.out.println();
+            }
+
         }
     }
     void buyFarm(){
@@ -159,25 +174,34 @@ public class FarmMenu {
             Farm f = select(); // 다형성으로 자손의 인스턴스를 갖고 있음.
 
             boolean res = fc.buyFarm(f);
+            if(res){
+                System.out.println("구매에 성공했습니다");
+                printFarm();
+                return;
+            }
+            System.out.println("마트에 없는 물건이거나 수량이 없습니다. 다시 입력해주세요");
         }
+
     }
     void removeFarm(){
         while(true){
             Farm f =select();
             boolean res = fc.removeFarm(f);
             if(res){
-                System.out.println("구매에 성공했습니다");
+                System.out.println("장바구니에서 제거에 성공했습니다");
                 return;
             }
-            System.out.println("마트에 없는 물건이거나 수량이 없습니다. 다시 입력해주세요");
+            System.out.println("장바구니에 없는 물건이거나 수량이 없습니다. 다시 입력해주세요");
         }
     }
 
     void printbuyFarm(){
         ArrayList<Farm> list = fc.printBuyFarm();
-        Iterator<Farm> iter = list.iterator();
-        while(iter.hasNext()){
-            iter.next();
+        System.out.println(list);
+        Iterator<Farm> iter = list.iterator(); // 그냥 for문으로 출력해도된다.ArrayList라서 인덱스 있음. 맵이나 셋 출력할 떄
+        // iterator나 for each문 사용함
+        for ( Farm f : list){
+            System.out.println(f);
         }
     }
 }
