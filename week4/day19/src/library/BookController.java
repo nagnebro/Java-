@@ -17,7 +17,7 @@ public class BookController {
     }
 
     void insertBook(Book bk) { // 도서 추가
-        if(bk.equals())
+        //if(bk.equals())
         list.add(bk); //중복 예외처리 안하나 -> 나중에 내가 한번 해봐야겠다. 우선은 그냥 구현하자.
     }
 
