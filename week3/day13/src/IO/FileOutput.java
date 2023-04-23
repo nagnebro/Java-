@@ -57,3 +57,24 @@ public class FileOutput {
 }
 
 
+
+class Test{
+
+    public static void main(String[] args) {
+
+        int count1 = 0;
+        int count2 = 0;
+
+        if((count1 == 1) || test()){
+            System.out.println("실행");
+        }
+
+
+
+
+    }
+    static boolean test() {
+        System.out.println("hi");
+        return true;
+    }
+}

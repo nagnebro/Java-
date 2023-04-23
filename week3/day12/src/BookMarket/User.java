@@ -12,14 +12,17 @@ public class User {
     private String address;
     private int phone;
 
+
     void menuGuestInfo(){
-        System.out.printf("이름 : %s , 주소 : %s, 아이디 : %d\n",name,address,phone);
+        System.out.printf("이름 : %s , 주소 : %s, 연락처 : %d\n",name,address,phone);
     }
 
     public User(String name, String address, int phone) {
         this.name = name;
         this.address = address;
         this.phone = phone;
+    }
+    public User(){
     }
 
     public String getName() {
