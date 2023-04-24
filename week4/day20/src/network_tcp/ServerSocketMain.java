@@ -41,7 +41,7 @@ public class ServerSocketMain {
         //isBound()
         // -ServerSocket이 바인딩 돼있는지 여부를 확인한다.
 
-        //accpt()
+        //accept()
         // -연결 요청을 수락.서버소켓이 실행되고 있는 상태에서 클라이언트의 소켓을 받으면서 통신이 되는 형태.
         // -연결 수락까지 설정된 시간만큼 blocking
         // -하나의 서버에 두개의 클라이언트가 오게되면 먼저 들어온 클라이언트 소켓 만들어서 통신할 동안 기다린다.
@@ -58,7 +58,7 @@ public class ServerSocketMain {
 
         //사용중인 tcp포트를 확인할 수 있다. 터미널의 netstat 명령어
 
-        for(int i = 0 ; i < 65536; i++){
+        for(int i = 1 ; i < 65536; i++){
             try {
                 ServerSocket serverSocket = new ServerSocket(i);
                 System.err.println(i+"번째 포트 사용중! ");

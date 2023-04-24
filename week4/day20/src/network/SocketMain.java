@@ -36,15 +36,17 @@ public class SocketMain {
         Socket socket4 = null;
 
 
+        // 어떤 원리인지 잘 모르겠다.
+
         try {
-            socket2 = new Socket("www.naver.com", 80);
+            socket2 = new Socket("www.naver.com", 1111);
 
             // 원격지 ip,port (문자열)에 연결하는 소켓을 생성
             // 송신지 주소와 포트정보도 같이 포함하여 연결 생성
-            socket3 = new Socket("www.naver.com", 80
-                    , InetAddress.getLocalHost(), 20000);
+            socket3 = new Socket("www.naver.com", 1111
+                    , InetAddress.getLocalHost(), 23020);
             socket4 = new Socket(InetAddress.getByName("www.naver.com")
-                    , 80);
+                    , 1111);
 
             System.out.println(socket1.getInetAddress() + ":"
                     + socket1.getPort());

@@ -1,27 +1,24 @@
-package chatting;
+package BookMarket;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.ServerSocket;
+import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class ClientEx {
+public class ttt {
 
-    public static void clientex(){
+
+    public void clientex() {
+        System.out.println("hi");
         BufferedReader in = null;
         BufferedWriter out = null;
-        System.out.println("클라이언트 메인메서드 실행");
+
         Socket socket = null;
         Scanner sc = new Scanner(System.in); // 키보드에서 읽을 내용
 
         try {
             // 클라이언트 소캣 생성 , 서버에 연결 (자동연결됨)
             // 둘 중 하나라도 없으면 연결X 소캣은 생성된다!
-            socket = new Socket("localhost",1111); // 서버와 클라이언트의 포트 내용이 다르면 실행되지않는다.
+            socket = new Socket("localhost",11111); // 서버와 클라이언트의 포트 내용이 다르면 실행되지않는다.
 
             in = new BufferedReader(new InputStreamReader(
                     socket.getInputStream()));
@@ -30,7 +27,7 @@ public class ClientEx {
                     socket.getOutputStream()));
 
             while(true) {
-                System.out.print("클라이언트 >");
+                System.out.print("고객 >");
 
                 // 클라이언트로 부터 한 행 씩 읽기!
                 // 클라이언트가 먼저 시작!
@@ -46,10 +43,12 @@ public class ClientEx {
 
                 // 서버에서생 한 행 수신
                 String inputMessage = in.readLine();
-                System.out.println("서버:" + inputMessage);
+                System.out.println("관리자:" + inputMessage);
 
             }
-        } catch (IOException e) {}
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         finally {
             sc.close();  // 스캐너 닫기
             try {
@@ -61,5 +60,13 @@ public class ClientEx {
             }
         }// finally 끝
 
+    }
+}
+
+class ttttest{
+
+    public static void main(String[] args) {
+        ttt t = new ttt();
+        t.clientex();
     }
 }

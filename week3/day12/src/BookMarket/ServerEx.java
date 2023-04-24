@@ -1,10 +1,6 @@
-package chatting;
+package BookMarket;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
@@ -25,7 +21,7 @@ public class ServerEx {
 
         try {
             // 서버 생성
-            listener = new ServerSocket(1111);
+            listener = new ServerSocket(11111);
             System.out.println("고객의 요청을 기다리고 있습니다.....");
             // 클라이언트로 부터 연결 요청 대기 무한대기중! 시간설정하면 일정 시간 요청으 대기하다가 소켓을 닫아버림.
             socket = listener.accept(); // socekt타입의 결과값을 반환하는 accpet()메서드.
@@ -47,8 +43,8 @@ public class ServerEx {
                     System.out.println("클라이언트가 bye로 연결 종료!");
                     break;
                 }
-                System.out.println("클라이언트:"+inputMessage); // 클라이언트로부터 읽은 문자열을 출력함.
-                System.out.print("서버>");
+                System.out.println("고객 :"+inputMessage); // 클라이언트로부터 읽은 문자열을 출력함.
+                System.out.print("관리자 >");
                 String outputMessage = sc.nextLine(); //서버가 입력하는 메시지
                 out.write(outputMessage +"\n"); // 서버로부터 받은 입력을 bufferwiter로 버퍼에다가 작성해줌.
                 out.flush(); // 모든 내용을 전송!

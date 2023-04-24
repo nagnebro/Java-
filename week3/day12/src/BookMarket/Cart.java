@@ -175,15 +175,15 @@ public class Cart {// 유저의 카트
             if (input.equals("Y")) {
                 System.out.print("배송지를 입력해주세요.");
                 address = sc.next(); // 배송지는 그냥 새로 입력받자.
-                return new UserDelivery(u.getName(),u.getPhone(),address);
+                return new UserDelivery(u.getName(),u.getPhone(),address); // 로그인 정보와 배송자 정보가 일치하면 주소만 입력받고 그 값을 생성자에 대입
             } else if(input.equals("N")){
                 System.out.print("배송받을 고객명을 입력하세요 : ");
                 String name = sc.next();
                 System.out.print("배송받을 고객의 연락처를  입력하세요 : ");
-                int phone = sc.nextInt();
+                String phone = sc.next();
                 System.out.print("배송받을 고객의 배송지를 입력하세요 : ");
                 address = sc.next();
-                return new UserDelivery(name,phone,address);
+                return new UserDelivery(name,phone,address); // 로그인 정보와 배송받을 사람으 정보가 다르면 다시 입력받음.
             }else{
                 System.out.println("다시 입력해주세요.");
             }
